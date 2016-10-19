@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29b7a27f-4866-4716-8154-f3e4b563135c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="areaK" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipoK" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="desde" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hasta" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     count(*) AS cuentame
+FROM
+     `equipos` equipos INNER JOIN `tipos` tipos ON equipos.`fk_tipo` = tipos.`k_tipo`
+     INNER JOIN `areas` areas ON equipos.`fk_area` = areas.`k_area`
+     INNER JOIN `mantenciones` mantenciones ON equipos.`nombre` = mantenciones.`fk_equipo`
+WHERE
+     equipos.`fk_tipo` = $P{tipoK}
+     and equipos.`fk_area` = $P{areaK}
+    
+ 	AND mantenciones.`fecha` between $P{desde} and $P{hasta}]]>
+	</queryString>
+	<field name="cuentame" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72"/>
+	</title>
+	<pageHeader>
+		<band height="14"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="7809de29-cb2d-4bdf-b48f-2319b23b01f3"/>
+			</line>
+			<staticText>
+				<reportElement x="242" y="1" width="100" height="20" uuid="cdb803c1-0771-4320-b267-c0c140ce14a5"/>
+				<text><![CDATA[cuentame]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="73">
+			<textField>
+				<reportElement x="242" y="0" width="100" height="20" uuid="5a5ae907-9bca-45b8-8a86-2992fc90efba"/>
+				<textFieldExpression><![CDATA[$F{cuentame}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="192fd174-3eec-4237-a347-d660292a2524"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="8eeafcb9-1baa-45cf-95ab-d0d75bc3164b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="0aa309ad-9972-435f-967b-d73ed01c1853"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

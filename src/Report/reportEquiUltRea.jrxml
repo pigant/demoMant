@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a51fa134-7ced-4206-85b9-4cd0204551d7">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="52"/>
+	<parameter name="equipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipoK" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hasta" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     mantenciones.`fk_equipo` AS mantenciones_fk_equipo,
+     mantenciones.`causa` AS mantenciones_causa,
+     mantenciones.`fecha` AS mantenciones_fecha,
+     mantenciones.`realizada` AS mantenciones_realizada,
+     mantenciones.`fk_usuario` AS mantenciones_fk_usuario,
+     mantenciones.`solicitante` AS mantenciones_solicitante,
+     mantenciones.`n_ot` as mantenciones_numero_ot,
+     acciones.`fecha_accion` AS acciones_fecha_accion,
+     acciones.`acciones` AS acciones_acciones,
+     acciones.`responsable` AS acciones_responsable,
+     areas.`nombre` AS areas_nombre,
+     tipos.`nombre` AS tipos_nombre
+FROM
+     `acciones` acciones INNER JOIN `mantenciones` mantenciones ON acciones.`fk_mantencion` = mantenciones.`k_mantencion`
+     INNER JOIN `equipos` equipos ON mantenciones.`fk_equipo` = equipos.`nombre`
+     INNER JOIN `usuario` usuario ON mantenciones.`fk_usuario` = usuario.`nombre`
+     INNER JOIN `areas` areas ON equipos.`fk_area` = areas.`k_area`
+     INNER JOIN `tipos` tipos ON equipos.`fk_tipo` = tipos.`k_tipo`
+
+Where mantenciones.`fk_equipo` =  $P{equipo} and
+	acciones.`fecha_accion` = $P{fecha}]]>
+	</queryString>
+	<field name="mantenciones_fk_equipo" class="java.lang.String"/>
+	<field name="mantenciones_causa" class="java.lang.String"/>
+	<field name="mantenciones_fecha" class="java.sql.Date"/>
+	<field name="mantenciones_realizada" class="java.lang.Boolean"/>
+	<field name="mantenciones_fk_usuario" class="java.lang.String"/>
+	<field name="mantenciones_solicitante" class="java.lang.String"/>
+	<field name="mantenciones_numero_ot" class="java.lang.Integer"/>
+	<field name="acciones_fecha_accion" class="java.sql.Date"/>
+	<field name="acciones_acciones" class="java.lang.String"/>
+	<field name="acciones_responsable" class="java.lang.String"/>
+	<field name="areas_nombre" class="java.lang.String"/>
+	<field name="tipos_nombre" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="e1386b07-f4ed-4030-98fa-7619b7c7ced2"/>
+				<staticText>
+					<reportElement x="20" y="20" width="269" height="43" forecolor="#FFFFFF" uuid="784148ee-d96d-40fd-981e-2c8e3f672fca"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte Equipo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="43" width="230" height="20" forecolor="#FFFFFF" uuid="d3241f88-e997-4f8c-a800-b46f30f6c2f7"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Ultima mantención realizada]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="5c97b2cf-ddfa-4a9a-ade7-49bf2df11a4a"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="219">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="56" width="89" height="20" uuid="105ed758-35a5-4064-9429-11964216dd3d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{areas_nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="89" y="56" width="61" height="20" uuid="431c6be2-35b0-45ce-ba82-8d2bab499270"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipos_nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="164" y="56" width="50" height="20" uuid="4d9c0010-c9e2-40be-95f1-c943f9b084d7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_fk_equipo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="214" y="56" width="91" height="20" uuid="4a49d6ec-dc80-4d61-9d79-ef1702bada48"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_fecha}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="325" y="56" width="230" height="20" uuid="da0ab90d-28c2-45b9-9a2e-05173f44d180"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_causa}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="151" width="80" height="20" uuid="9b932b44-3f42-4a45-885e-9d83274b0882"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_realizada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="164" y="76" width="139" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="46417bbb-760c-49b1-9384-de3286d674cb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[solicitante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="131" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1c7b9a41-cf50-423e-8167-91364b999d0f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fecha realizada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="205" y="131" width="230" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="bbd91d05-3925-4640-b019-bcb38e1289a0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[accion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="435" y="131" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="576d4383-dc42-4356-a8d8-999156de4d76"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[responsable]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="164" y="96" width="139" height="20" uuid="acb1a3ee-5beb-4e20-8b45-f5df24ff22b3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_solicitante}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="151" width="100" height="20" uuid="f6c266d8-2326-41fd-9fc8-ad5f701cab92"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{acciones_fecha_accion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="205" y="151" width="230" height="20" uuid="3f3c1481-a2af-4fe7-90fb-e66e0dfee7d1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{acciones_acciones}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="435" y="151" width="120" height="20" uuid="bd36c3ca-d66f-4345-aaa7-d75c1213f11f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{acciones_responsable}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="96" width="150" height="20" uuid="b6a78d1d-e878-4466-b3b9-7324065a596f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_fk_usuario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="36" width="89" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b12072ee-ccd8-4d4f-986a-04ded7a5d23f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[area]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="89" y="36" width="61" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e0163fa7-2f8e-42ea-87be-b8563a8995be"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="164" y="36" width="50" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="cf3b32e8-75ed-4415-9073-82d4973fb31e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="212" y="36" width="91" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dfeeb0dc-ce5f-47e8-997c-92f727097147"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="325" y="36" width="230" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="23bff7ce-f057-4da1-beae-62478d81c457"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[causa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="131" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7024c450-16c3-44c7-ad79-aeb206e9b009"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[realizada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="76" width="150" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d553480d-09b9-434c-b758-2b6171cabc1e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[usuario]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="325" y="96" width="139" height="20" uuid="40183c47-1916-40c1-8d94-f1f35f6e555d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_numero_ot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="325" y="76" width="139" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="645b5d71-47a2-48c6-b394-376e5f42e268"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero de OT]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="93">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="80" width="515" height="13" backcolor="#E6E6E6" uuid="4fde1290-4258-4ab4-9301-38c39624072a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="80" width="40" height="13" backcolor="#E6E6E6" uuid="d0e97e90-95eb-44f2-8b0b-d5b48eb62d50"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="80" width="100" height="13" uuid="8cd68cd8-0df0-4907-a1a7-8411108b0021"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

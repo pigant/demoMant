@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" columnDirection="RTL" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="368a0daf-f629-4adb-ac31-a6f49d02b653">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="be5ceba6-5a51-4ba2-acfb-0cc14398e007"/>
+	<parameter name="equipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fkMant" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     acciones.`fecha_accion` AS acciones_fecha_accion,
+     acciones.`acciones` AS acciones_acciones,
+     acciones.`responsable` AS acciones_responsable,
+     areas.`nombre` AS areas_nombre,
+     mantenciones.`causa` AS mantenciones_causa,
+     mantenciones.`fecha` AS mantenciones_fecha,
+     mantenciones.`realizada` AS mantenciones_realizada,
+     mantenciones.`fk_usuario` AS mantenciones_fk_usuario,
+     mantenciones.`solicitante` AS mantenciones_solicitante,
+     tipos.`nombre` AS tipos_nombre,
+     mantenciones.`fk_equipo` AS mantenciones_fk_equipo
+FROM
+     `mantenciones` mantenciones INNER JOIN `acciones` acciones ON mantenciones.`k_mantencion` = acciones.`fk_mantencion`
+     INNER JOIN `usuario` usuario ON mantenciones.`fk_usuario` = usuario.`nombre`
+     INNER JOIN `equipos` equipos ON mantenciones.`fk_equipo` = equipos.`nombre`
+     INNER JOIN `areas` areas ON equipos.`fk_area` = areas.`k_area`
+     INNER JOIN `tipos` tipos ON equipos.`fk_tipo` = tipos.`k_tipo`
+WHERE
+     mantenciones.`fk_equipo` = $P{equipo} AND
+	mantenciones.`k_mantencion` = $P{fkMant}]]>
+	</queryString>
+	<field name="acciones_fecha_accion" class="java.sql.Date"/>
+	<field name="acciones_acciones" class="java.lang.String"/>
+	<field name="acciones_responsable" class="java.lang.String"/>
+	<field name="areas_nombre" class="java.lang.String"/>
+	<field name="mantenciones_causa" class="java.lang.String"/>
+	<field name="mantenciones_fecha" class="java.sql.Date"/>
+	<field name="mantenciones_realizada" class="java.lang.Boolean"/>
+	<field name="mantenciones_fk_usuario" class="java.lang.String"/>
+	<field name="mantenciones_solicitante" class="java.lang.String"/>
+	<field name="tipos_nombre" class="java.lang.String"/>
+	<field name="mantenciones_fk_equipo" class="java.lang.String"/>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="336" y="65" width="449" height="29" uuid="67b5ff86-fb79-40f7-8180-ee07125df908"/>
+				<textElement textAlignment="Right">
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Flower SubTitle]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="bb6d63b7-1117-48f4-9c38-7eaa922aa43a"/>
+				<staticText>
+					<reportElement style="Title" x="231" y="0" width="578" height="65" uuid="158570ec-9a4f-4814-81af-8ece305c434e"/>
+					<textElement textAlignment="Right">
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Flower Title]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch">
+			<frame>
+				<reportElement x="227" y="0" width="575" height="14" uuid="5af0d808-d10b-4728-9939-e40b83dd3057"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="52" y="0" width="52" height="14" forecolor="#000000" uuid="a2b61b8e-48fb-4b10-9f05-4174525ff444"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[tipos_nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="104" y="0" width="52" height="14" forecolor="#000000" uuid="5fb4dffd-9269-473e-8e79-5e3ac23bbb55"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[areas_nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="156" y="0" width="52" height="14" forecolor="#000000" uuid="27033dbb-c19b-4fb4-9c36-70e7528dc644"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[mantenciones_fecha]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="208" y="0" width="52" height="14" forecolor="#000000" uuid="dce6eb16-2576-44af-8d25-c0d5cb207040"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[mantenciones_causa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="260" y="0" width="52" height="14" forecolor="#000000" uuid="7d2ec037-0aca-4329-8950-86173083d508"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[mantenciones_fk_usuario]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="312" y="0" width="52" height="14" forecolor="#000000" uuid="890f225c-45cf-477d-90f9-393f797dba6f"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[mantenciones_solicitante]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="364" y="0" width="52" height="14" forecolor="#000000" uuid="89985333-622b-408e-a879-429edac66e2c"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[mantenciones_realizada]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="416" y="0" width="52" height="14" forecolor="#000000" uuid="c1e056e2-6523-45bf-bd89-0df204959ae3"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[acciones_fecha_accion]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="468" y="0" width="52" height="14" forecolor="#000000" uuid="de5227ec-8b56-47e5-b1ea-4ea8c6e73b8e"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[acciones_acciones]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="520" y="0" width="52" height="14" forecolor="#000000" uuid="8dcc707f-9942-49ba-bda1-49dfab236d99"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[acciones_responsable]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="224" y="0" width="52" height="14" forecolor="#000000" uuid="96019d0e-9190-4cf9-866c-a25628198ca1"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[mantenciones_fk_equipo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="227" y="14" width="575" height="1" uuid="fd6bd06f-e4b5-4c75-bfd3-db5fa21de1fe"/>
+			</line>
+			<frame>
+				<reportElement x="227" y="0" width="575" height="14" uuid="78dc825e-c980-4e84-bd9b-1d9f6cf6a94f"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="52" y="0" width="52" height="14" uuid="55320128-9a5a-41aa-bd01-76a9903cd193"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipos_nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="104" y="0" width="52" height="14" uuid="eaa6c601-a1f2-479d-b442-cb0312c2193f"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{areas_nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="156" y="0" width="52" height="14" uuid="a8694eff-1dcc-42aa-aac1-080409e68d01"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mantenciones_fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="208" y="0" width="52" height="14" uuid="27b412bf-9ea2-4aec-a315-c6e33ec2a31b"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mantenciones_causa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="260" y="0" width="52" height="14" uuid="8c095a34-853e-41e8-93b6-af303a9c3c7f"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mantenciones_fk_usuario}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="312" y="0" width="52" height="14" uuid="50bd9f5f-f60a-4efb-b776-678b63e4867d"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mantenciones_solicitante}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="364" y="0" width="52" height="14" uuid="eeaca943-0545-48cc-9b81-0543ca57a056"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mantenciones_realizada}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="416" y="0" width="52" height="14" uuid="5145cb01-b3d1-4f92-976d-53d8f5fb0d24"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{acciones_fecha_accion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="468" y="0" width="52" height="14" uuid="4e688802-3026-4bcf-bcf5-ad18e084f69d"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{acciones_acciones}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="520" y="0" width="52" height="14" uuid="223953e0-832d-4b1e-9fb2-68ae427d9a84"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{acciones_responsable}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="227" y="1" width="52" height="14" uuid="5a2c418b-745d-4cbb-8cf7-a79edfd49c9f"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_fk_equipo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="cf08e38a-d633-44d8-8238-639163287455"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="721e8638-7904-4a86-8251-5e39c166fada"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="e0a4c1f7-6c6e-4c13-8770-244a8403ae0e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="94c943e8-9a5e-496b-9f90-31a07eb76667"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="770cadfc-8d90-4dd2-8d5d-f93b6a45726c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

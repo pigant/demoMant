@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a4698cd4-0bc4-4167-bc2a-527542e32d5f">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tipoK" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="areaK" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="desde" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hasta" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\CARR\\Documents\\NetBeansProjects\\Demov10\\src\\Report\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     mantenciones.`n_ot` AS mantenciones_n_ot,
+     mantenciones.`fk_equipo` AS mantenciones_fk_equipo,
+     mantenciones.`realizada` AS mantenciones_realizada
+FROM
+     `equipos` equipos INNER JOIN `areas` areas ON equipos.`fk_area` = areas.`k_area`
+     INNER JOIN `tipos` tipos ON equipos.`fk_tipo` = tipos.`k_tipo`
+     INNER JOIN `mantenciones` mantenciones ON equipos.`nombre` = mantenciones.`fk_equipo`
+WHERE
+     equipos.`fk_tipo` = $P{tipoK}
+ AND equipos.`fk_area` = $P{areaK}
+ AND mantenciones.`fecha` between  $P{desde} and $P{hasta}]]>
+	</queryString>
+	<field name="mantenciones_n_ot" class="java.lang.Integer"/>
+	<field name="mantenciones_fk_equipo" class="java.lang.String"/>
+	<field name="mantenciones_realizada" class="java.lang.Boolean"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="76b2a7d3-c49c-46c5-a38e-269628d0eaa3"/>
+				<staticText>
+					<reportElement x="20" y="20" width="313" height="43" forecolor="#FFFFFF" uuid="44d06ef2-15d9-4979-85d4-76a1d101eb93"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Resumen por área]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="352" y="43" width="223" height="20" forecolor="#FFFFFF" uuid="9e570b56-a59b-48ed-9148-0b23e2b526ff"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Resumen de solicitudes por OT]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="49806a51-fbaf-403d-8b7d-d1cf6c61ce1a"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7e0e299b-dd4d-4c1d-8144-2ef2c4d6f394"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dad27edc-dde3-4d8b-81a6-7641f84f8ab7"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="151928f7-e475-4397-bcd4-43c62239e392"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° de OT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="c224b46a-612a-4ede-a6d1-9700340b37eb"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="185" height="20" uuid="8694d216-4d8c-425d-b1c2-5ea7fc73f69f"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_fk_equipo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="185" y="0" width="185" height="20" uuid="ea50ace9-8765-4ec4-bf68-d326d0b0dc04"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_realizada}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="370" y="0" width="185" height="20" uuid="8b805801-1a48-46e0-9067-bcef63f5aad6"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenciones_n_ot}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="39"/>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="95">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="82" width="515" height="13" backcolor="#E6E6E6" uuid="6463044e-3ac4-4aeb-ac19-7a954fd23b6c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="82" width="40" height="13" backcolor="#E6E6E6" uuid="b1ceded5-0daa-449b-b89c-256f2ae5eea4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="82" width="100" height="13" uuid="0fa48850-dd87-42c9-9e14-c633cffb86de"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="167">
+			<subreport>
+				<reportElement x="285" y="10" width="230" height="40" uuid="3e28727f-ece6-4521-b08b-afc2e0af84d5"/>
+				<subreportParameter name="tipoK">
+					<subreportParameterExpression><![CDATA[$P{tipoK}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="areaK">
+					<subreportParameterExpression><![CDATA[$P{areaK}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "newReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="30" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b8d0eea7-dedf-479d-b116-6c3b060dd238"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de solictudes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="285" y="10" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="23ca7e54-da73-4ead-971c-94a05275ea70"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° de OT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="417" y="10" width="98" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="78e07550-ce0c-48bf-ac75-071c19f9e49f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
