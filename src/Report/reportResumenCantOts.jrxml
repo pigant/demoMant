@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a4698cd4-0bc4-4167-bc2a-527542e32d5f">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.2396694214876032"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="tipoK" class="java.lang.Integer">
@@ -16,7 +16,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\CARR\\Documents\\NetBeansProjects\\Demov10\\src\\Report\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\ferna\\Documents\\NetBeansProjects\\Demov10\\src\\Report\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -91,7 +91,7 @@ WHERE
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="22">
+		<band height="36">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="c224b46a-612a-4ede-a6d1-9700340b37eb"/>
 			</line>
@@ -117,7 +117,6 @@ WHERE
 				<textFieldExpression><![CDATA[$F{mantenciones_n_ot}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="39"/>
 	</detail>
 	<columnFooter>
 		<band/>

@@ -33,15 +33,17 @@ javax.swing.JPanel m;
         this.m.removeAll();
         jp.setSize(this.m.getSize());
         //this.jPanel1.add(jp, BorderLayout.CENTER);
+//        
         this.m.add(jp, BorderLayout.CENTER);
         //this.jPanel3.add(jp, setSize(this.jPanel3.getSize()));
-        
+          
         //System.out.println(this.getSize());
         //this.jPanel1.updateUI();
         this.m.updateUI();
         //this.jPanel1.repaint();
         this.m.repaint();
         repaint();
+        
     }
 
     /**

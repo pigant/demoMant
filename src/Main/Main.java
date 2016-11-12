@@ -26,9 +26,11 @@ private BLL.Usuarios user;
      * Creates new form Main
      */
     public Main() {
-        setExtendedState(MAXIMIZED_BOTH);
         
         initComponents();
+        
+        setExtendedState(MAXIMIZED_BOTH);
+        
         user = new BLL.Usuarios();
     }
     public void cambioVentana(javax.swing.JPanel jp){
@@ -41,7 +43,7 @@ private BLL.Usuarios user;
          
         //this.jPanel3.add(jp, setSize(this.jPanel3.getSize()));
         
-        System.out.println(this.getSize());
+        
         this.jPanel3.updateUI();
         
         this.jPanel3.repaint();
@@ -250,7 +252,7 @@ private BLL.Usuarios user;
             
             this.cambioVentana(new MenuGui(this.user));
         }else{
-        JOptionPane.showMessageDialog(null, "Algo ocurrio intenta nuevamente");
+            JOptionPane.showMessageDialog(null, "Algo ocurrio intenta nuevamente");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

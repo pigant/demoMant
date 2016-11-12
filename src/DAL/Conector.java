@@ -30,11 +30,17 @@ public class Conector {
     public void getConexion() {
         try {
             this.conn = DriverManager.getConnection("jdbc:mysql://localhost/demo"
-                    ,"root","");
-            
+                   ,"root","");
+             //Class.forName("com.mariadb.jdbc.Driver");
+          // this.conn = DriverManager.getConnection("jdbc:mariadb://"
+                   //+ "localhost:3306/demo?user=root&password=");
+            //this.conn = DriverManager.getConnection("jdbc:mariadb://localhost3306/demo"
+             //     ,"root","");
         } catch (SQLException ex) {
             Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //} catch (ClassNotFoundException ex) {
+        //    Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
   
 }

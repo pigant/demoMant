@@ -6,8 +6,13 @@
 package GUI;
 import BLL.Acciones;
 import java.awt.BorderLayout;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 /**
  *
  * @author CARR
@@ -17,16 +22,48 @@ public class AccionesGUI extends javax.swing.JFrame {
     /**
      * Creates new form MantencionesGUI
      */
+    private class WorkerCorreoAcc extends SwingWorker<Void, Void> {
+
+       
+        @Override
+        protected Void doInBackground() throws Exception {
+            new BLL.Correos().envioCorreosCerrado(jLabelEquipo.getText(), 
+                    jTextResponsable.getText(), jTextArea2.getText(), 
+                   jLabelOT.getText());
+            return null;
+        }
+
+        @Override
+        
+
+        protected void done() {            
+            try {
+                get();
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MantencionesGUI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ExecutionException ex) {
+                Logger.getLogger(MantencionesGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Su mensaje ha sido enviado");
+
+           modalDialog.setVisible(false);
+           modalDialog.dispose();
+           
+
+        }
+    }
     private String nombre; 
     private Acciones accion;
     private javax.swing.JPanel jp;
     private BLL.Usuarios user;
+     private JDialog modalDialog;  
     public AccionesGUI(String nombre, javax.swing.JPanel jp, BLL.Usuarios user) {
-        
+     
         initComponents();
         
         this.accion = new Acciones();
-        this.jLabel2.setText(nombre);
+        this.jLabelEquipo.setText(nombre);
         this.jLabelOT.setText(nombre);
         
         System.out.println(nombre);
@@ -54,7 +91,7 @@ public class AccionesGUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelEquipo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -75,12 +112,13 @@ public class AccionesGUI extends javax.swing.JFrame {
 
         jLabel1.setText("Equipo:");
 
-        jLabel2.setText(".");
+        jLabelEquipo.setText(".");
 
         jLabel3.setText("Causa:");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel4.setText("Acción:");
@@ -135,7 +173,7 @@ public class AccionesGUI extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(50, 50, 50)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -171,7 +209,7 @@ public class AccionesGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabelEquipo)
                     .addComponent(jLabel7)
                     .addComponent(jLabelFecha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -228,16 +266,16 @@ public class AccionesGUI extends javax.swing.JFrame {
                 upJ = new TrozadosIluminariasGui(this.user);
              }else
             if (jp.getClass().getName().equals("GUI.EmpaqueIluminariasGui")){
-                upJ = new TrozadosIluminariasGui(this.user);
+                upJ = new EmpaqueIluminariasGui(this.user);
              }else
             if (jp.getClass().getName().equals("GUI.ProcesosPosterioresIluminariasGui")){
-                upJ = new TrozadosIluminariasGui(this.user);
+                upJ = new ProcesosPosterioresIluminariasGui(this.user);
              }else
             if (jp.getClass().getName().equals("GUI.TrozadoEvaporadoresGui")){
-                upJ = new TrozadosIluminariasGui(this.user);
+                upJ = new TrozadoEvaporadoresGui(this.user);
              }else
                 if (jp.getClass().getName().equals("GUI.EmpaqueEvaporadoresGui")){
-                upJ = new TrozadosIluminariasGui(this.user);
+                upJ = new EmpaqueEvaporadoresGui(this.user);
              }
             this.jp.removeAll();
             upJ.setSize(this.jp.getSize());
@@ -250,7 +288,20 @@ public class AccionesGUI extends javax.swing.JFrame {
         
              this.jp.repaint();
         repaint();
-            JOptionPane.showMessageDialog(null, "Ingresado Ok");
+             modalDialog = new VentanaLoading(null,false);
+             modalDialog.pack();           
+             modalDialog.setSize(200, 150);
+                    modalDialog.setLocationRelativeTo(null);
+                    
+                    modalDialog.setVisible(true);
+             
+           
+                
+            WorkerCorreoAcc w = new WorkerCorreoAcc();
+            w.execute();
+           
+            
+            
             
             dispose();
         }else{
@@ -301,13 +352,13 @@ public class AccionesGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelEquipo;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelOT;
     private javax.swing.JPanel jPanel1;

@@ -5,6 +5,7 @@
  */
 package DAL;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,10 +28,14 @@ public class UsuarioDAL {
     }
     
     
-    public boolean readUser(String nombre, String pass){
-        
+    public boolean readUser(String nombre, String pass) {
+        boolean r = false;
+         PreparedStatement ps = null;
+        Connection dbCon = null;
         try {
-            PreparedStatement ps = new Conector().getConn().prepareStatement(
+            
+            dbCon = new Conector().getConn();
+            ps = dbCon.prepareStatement( 
                     "select count(nombre) as c, nombre, empresa from usuario where nombre = '"+nombre+"'"
                             +" and contraseña = '"+pass+"' ");
             ResultSet rs = ps.executeQuery();
@@ -38,15 +43,32 @@ public class UsuarioDAL {
             if (rs.getInt("c")== 1) {
                 this.nombre = rs.getString("nombre");
                 this.empresa = rs.getString("empresa");
-                return true;
-            }else{
-                return false;
+                r = true;
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
+            
+        }finally {
+
+			if (ps!= null) {
+                            try {
+                                ps.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+			}
+
+			if (dbCon != null) {
+                            try {
+                                dbCon.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+			}
+
+		}
+        return r;
     }
         
 }

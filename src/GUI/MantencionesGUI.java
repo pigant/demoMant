@@ -7,7 +7,22 @@ package GUI;
 
 import BLL.Manteciones;
 import java.awt.BorderLayout;
+import java.awt.Dialog.ModalityType;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.net.URL;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
@@ -18,21 +33,56 @@ public class MantencionesGUI extends javax.swing.JFrame {
     /**
      * Creates new form MantencionesGUI
      */
-    private String nombre; 
+    private String nombre;
     private BLL.Usuarios user;
     private javax.swing.JPanel jp;
-         
-    public MantencionesGUI(String nombre, BLL.Usuarios user, 
+
+    private class WorkerCorreoMant extends SwingWorker<Void, Void> {
+
+       
+        @Override
+        protected Void doInBackground() throws Exception {
+            new BLL.Correos().envioCorreos(jLabelEquipo.getText(),
+                    jTextFieldSolicitante.getText(),
+                    jTextAreaCausa.getText(),
+                    jTextFieldOt.getText());
+            return null;
+        }
+
+        @Override
+        //musica de varon
+        //es la radio :p
+
+        protected void done() {            
+            try {
+                get();
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MantencionesGUI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ExecutionException ex) {
+                Logger.getLogger(MantencionesGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Su mensaje ha sido enviado");
+
+           modalDialog.setVisible(false);
+           modalDialog.dispose();
+           
+
+        }
+    }
+    
+    private JFrame l;
+   private JDialog modalDialog;
+    public MantencionesGUI(String nombre, BLL.Usuarios user,
             javax.swing.JPanel jp) {
-        
         initComponents();
         this.user = user;
         this.jLabelUser.setText(user.getNombre());
         this.jLabelEquipo.setText(nombre);
         this.jp = jp;
-        
-        
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -206,44 +256,53 @@ public class MantencionesGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        System.out.println(jp.getClass().getName());
         if (new BLL.Manteciones().Manteciones(this.jLabelEquipo.getText(),
                 this.jTextAreaCausa.getText(),
-                this.jDateChooser1.getDate(), user.getNombre(), 
+                this.jDateChooser1.getDate(), user.getNombre(),
                 this.jTextFieldSolicitante.getText(), this.jTextFieldOt.getText(),
                 this.jTextFieldMail.getText())) {
             javax.swing.JPanel upJ = new javax.swing.JPanel();
-           
-            if (jp.getClass().getName().equals("GUI.TrozadosIluminariasGui")){
+
+            if (jp.getClass().getName().equals("GUI.TrozadosIluminariasGui")) {
                 upJ = new TrozadosIluminariasGui(this.user);
-             }else
-            if (jp.getClass().getName().equals("GUI.EmpaqueIluminariasGui")){
+            } else if (jp.getClass().getName().equals("GUI.EmpaqueIluminariasGui")) {
                 upJ = new EmpaqueIluminariasGui(this.user);
-             }else
-            if (jp.getClass().getName().equals("GUI.ProcesosPosterioresIluminariasGui")){
+            } else if (jp.getClass().getName().equals("GUI.ProcesosPosterioresIluminariasGui")) {
                 upJ = new ProcesosPosterioresIluminariasGui(this.user);
-             }else
-            if (jp.getClass().getName().equals("GUI.TrozadoEvaporadoresGui")){
+            } else if (jp.getClass().getName().equals("GUI.TrozadoEvaporadoresGui")) {
                 upJ = new TrozadoEvaporadoresGui(this.user);
-             }else
-                if (jp.getClass().getName().equals("GUI.EmpaqueEvaporadoresGui")){
+            } else if (jp.getClass().getName().equals("GUI.EmpaqueEvaporadoresGui")) {
                 upJ = new EmpaqueEvaporadoresGui(this.user);
-             }
+            }
             this.jp.removeAll();
+
             upJ.setSize(this.jp.getSize());
+
+            this.jp.add(upJ);
+
+            this.jp.updateUI();
+
+            this.jp.repaint();
+            repaint();
+
+//           
+             modalDialog = new VentanaLoading(null,false);
+             modalDialog.pack();           
+             modalDialog.setSize(200, 150);
+                    modalDialog.setLocationRelativeTo(null);
+                    
+                    modalDialog.setVisible(true);
+             
+           
+                
+            WorkerCorreoMant w = new WorkerCorreoMant();
+            w.execute();
+           
         
-            this.jp.add(upJ, BorderLayout.CENTER);
-        
-        
-        
-                this.jp.updateUI();
-        
-             this.jp.repaint();
-        repaint();
-            JOptionPane.showMessageDialog(null, "Ingresado Ok");
-            
             dispose();
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(null, "Algo ocurrio");
         }
     }//GEN-LAST:event_jButton1ActionPerformed

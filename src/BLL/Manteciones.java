@@ -8,7 +8,13 @@ package BLL;
 import java.awt.Color;
 import java.sql.Time;
 import java.util.Date;
-
+import DAL.MantencionesDAL;
+import GUI.TrozadoIluminariasImagen;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author CARR
@@ -22,6 +28,8 @@ public class Manteciones {
     private boolean ok;
     private int nOt;
     private String correo;
+    private int kMant;
+    
     public Manteciones() {
     }
     
@@ -88,24 +96,43 @@ public class Manteciones {
     }
     public int buscarUltimaKey(){
         
-        return new DAL.MantencionesDAL().buscarUltimaKey(this.name);
+        try {
+            return new DAL.MantencionesDAL().buscarUltimaKey(this.name);
+        } catch (SQLException ex) {
+            Logger.getLogger(Manteciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
     public String buscarUltima(int mantK){
         
-        return new DAL.MantencionesDAL().buscarUltima(this.name, mantK);
+        try {
+            return new DAL.MantencionesDAL().buscarUltima(this.name, mantK);
+        } catch (SQLException ex) {
+            Logger.getLogger(Manteciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "nada";
     }
     
     public int buscarUltimaNoRealizada(){
         DAL.MantencionesDAL mantDal = new DAL.MantencionesDAL();
         
-        int mK;
-        mK = mantDal.buscarUltimaNoRealizada(this.name);
+        int mK = 0;
+        try {
+            mK = mantDal.buscarUltimaNoRealizada(this.name);
+        } catch (SQLException ex) {
+            Logger.getLogger(Manteciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.fecha = mantDal.getFecha();
         this.nOt = mantDal.getnOt();
+        this.kMant = mK;
         return mK;
     }
-
+    public String buscarModif(){
+        this.buscarUltimaNoRealizada();
+        return this.buscarUltima(this.kMant);
+        
+    }
     public Date getFecha() {
         return fecha;
     }
@@ -120,14 +147,44 @@ public class Manteciones {
        }
        
     }
-
+    public ArrayList listC(){
+        
+            return new MantencionesDAL().listNoRealizadas();
+       
+        
+    
+    }
+    
     public int getnOt() {
         return nOt;
     }
             
-    
-         
+        public boolean modificarMant(String comentario, java.util.Date fecha, 
+            String responsable){
+        try{
+        if (this.kMant > 0 && !responsable.isEmpty()){
+            
+            return new MantencionesDAL().update(comentario, this.kMant,
+                    this.setSqlFecha(fecha),responsable);
+         }else{
+            
+            return false;
+        }
+        
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+
+    public int getkMant() {
+        return kMant;
+    }
+}
+        
+
+       
     
     
      
-}
+

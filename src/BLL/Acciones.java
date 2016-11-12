@@ -38,6 +38,7 @@ public class Acciones {
             return false;
         }
     }
+
     public String buscarUltimaMant(String equipo){
         
         Manteciones mant = new Manteciones(equipo);

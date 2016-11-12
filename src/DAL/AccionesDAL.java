@@ -5,9 +5,11 @@
  */
 package DAL;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
 
 /**
  *
@@ -16,10 +18,14 @@ import java.sql.SQLException;
 public class AccionesDAL {
     
     public boolean create(String accion,int mantKey, java.sql.Date fecha, 
-            String responsable){
-     
-        try { 
-            PreparedStatement ps = new Conector().getConn().prepareStatement(              
+            String responsable) throws SQLException{
+        boolean r = false;
+        PreparedStatement ps = null;
+        Connection dbCon = null;
+        try{
+            
+            dbCon = new Conector().getConn();
+            ps = dbCon.prepareStatement(              
                 "update acciones set fecha_accion = ?, acciones = ?, responsable = ?, "
                         + "realizada = 1 where fk_mantencion = '"+mantKey+"'");
             ps.setDate(1,fecha);
@@ -29,24 +35,43 @@ public class AccionesDAL {
             PreparedStatement pps = new Conector().getConn().prepareStatement(              
                 "update mantenciones set realizada = 1 where k_mantencion = '"+mantKey+"'");
             pps.executeUpdate();
-            return true;
+            r = true;
          
         } catch (SQLException ex) {
                              if (ex.getErrorCode()==1062) {
                                  System.out.println("2");
-                                 return false;
+                                 
                                  
                              }else{
                                  System.out.println(ex.getMessage());
-                        return false;         
-                    }   
+                                 
+                    }
+        }finally {
+
+			if (ps!= null) {
+				ps.close();
+			}
+
+			if (dbCon != null) {
+				dbCon.close();
+			}
+
+		}  
                //Logger.getLogger(MantencionesDAL.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+    return r;    
     }
+            
+    
+
     public java.sql.Date buscarUltimaRealizada(String equipo){
-        try { 
-            PreparedStatement ps = new Conector().getConn().prepareStatement(              
+        Date fecha = null;
+        PreparedStatement ps = null;
+        Connection dbCon = null;
+        
+        try{
+            
+            dbCon = new Conector().getConn();
+            ps = dbCon.prepareStatement(              
                 "select acciones.fecha_accion as ultFecha"
                         + " from mantenciones"
                         + " inner join acciones"
@@ -57,22 +82,22 @@ public class AccionesDAL {
             
             ResultSet rs = ps.executeQuery();
             rs.next();
-                return rs.getDate("ultFecha");
+                fecha = rs.getDate("ultFecha");
             
            
          
         } catch (SQLException ex) {
                              if (ex.getErrorCode()==1062) {
                                  System.out.println("2");
-                                 return null;
+                             
                                  
                              }else{
                                  System.out.println(ex.getMessage());
-                                 return null;
+                                 
                              }   
                //Logger.getLogger(MantencionesDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return fecha;
     }
      
     
