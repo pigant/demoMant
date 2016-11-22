@@ -496,7 +496,9 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        aa1 = new javax.swing.JPanel();
         q123 = new javax.swing.JButton();
         q122 = new javax.swing.JButton();
         q125 = new javax.swing.JButton();
@@ -638,7 +640,9 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
         jBPrueba1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new java.awt.GridBagLayout());
+
+        aa1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         q123.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q123.setForeground(new java.awt.Color(240, 240, 240));
@@ -652,7 +656,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q123ActionPerformed(evt);
             }
         });
-        add(q123, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 100, 40));
+        aa1.add(q123, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 100, 40));
         q123.getAccessibleContext().setAccessibleName("Q123");
 
         q122.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
@@ -667,7 +671,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q122ActionPerformed(evt);
             }
         });
-        add(q122, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 100, 40));
+        aa1.add(q122, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 100, 40));
 
         q125.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q125.setForeground(new java.awt.Color(240, 240, 240));
@@ -681,7 +685,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q125ActionPerformed(evt);
             }
         });
-        add(q125, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 100, 40));
+        aa1.add(q125, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 100, 40));
 
         q124.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q124.setForeground(new java.awt.Color(240, 240, 240));
@@ -695,7 +699,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q124ActionPerformed(evt);
             }
         });
-        add(q124, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 100, 40));
+        aa1.add(q124, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 100, 40));
 
         q143.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q143.setForeground(new java.awt.Color(240, 240, 240));
@@ -709,7 +713,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q143ActionPerformed(evt);
             }
         });
-        add(q143, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 1330, 50, 50));
+        aa1.add(q143, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 1330, 50, 50));
 
         q142.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q142.setForeground(new java.awt.Color(240, 240, 240));
@@ -723,7 +727,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q142ActionPerformed(evt);
             }
         });
-        add(q142, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 1140, 30, 30));
+        aa1.add(q142, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 1140, 30, 30));
 
         q141.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q141.setForeground(new java.awt.Color(240, 240, 240));
@@ -737,7 +741,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q141ActionPerformed(evt);
             }
         });
-        add(q141, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 20, 20));
+        aa1.add(q141, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 20, 20));
 
         q140.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q140.setForeground(new java.awt.Color(240, 240, 240));
@@ -751,7 +755,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q140ActionPerformed(evt);
             }
         });
-        add(q140, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 20, 20));
+        aa1.add(q140, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 20, 20));
 
         q139.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q139.setForeground(new java.awt.Color(240, 240, 240));
@@ -765,7 +769,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q139ActionPerformed(evt);
             }
         });
-        add(q139, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 20, 20));
+        aa1.add(q139, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 20, 20));
         q139.getAccessibleContext().setAccessibleName("Q139");
 
         q126.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
@@ -780,7 +784,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q126ActionPerformed(evt);
             }
         });
-        add(q126, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 60, 40));
+        aa1.add(q126, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 60, 40));
 
         q127.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q127.setForeground(new java.awt.Color(240, 240, 240));
@@ -794,7 +798,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q127ActionPerformed(evt);
             }
         });
-        add(q127, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 100, 40));
+        aa1.add(q127, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 100, 40));
 
         q128.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q128.setForeground(new java.awt.Color(240, 240, 240));
@@ -808,7 +812,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q128ActionPerformed(evt);
             }
         });
-        add(q128, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 100, 40));
+        aa1.add(q128, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 100, 40));
 
         q129.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q129.setForeground(new java.awt.Color(240, 240, 240));
@@ -822,7 +826,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q129ActionPerformed(evt);
             }
         });
-        add(q129, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 100, 30));
+        aa1.add(q129, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 100, 30));
 
         q130.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q130.setForeground(new java.awt.Color(240, 240, 240));
@@ -836,7 +840,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q130ActionPerformed(evt);
             }
         });
-        add(q130, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 100, 40));
+        aa1.add(q130, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 100, 40));
 
         q131.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q131.setForeground(new java.awt.Color(240, 240, 240));
@@ -850,7 +854,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q131ActionPerformed(evt);
             }
         });
-        add(q131, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 100, 40));
+        aa1.add(q131, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 100, 40));
 
         q132.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q132.setForeground(new java.awt.Color(240, 240, 240));
@@ -864,7 +868,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q132ActionPerformed(evt);
             }
         });
-        add(q132, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 100, 40));
+        aa1.add(q132, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 100, 40));
 
         q133.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q133.setForeground(new java.awt.Color(240, 240, 240));
@@ -878,7 +882,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q133ActionPerformed(evt);
             }
         });
-        add(q133, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, 100, 40));
+        aa1.add(q133, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, 100, 40));
 
         q134.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q134.setForeground(new java.awt.Color(240, 240, 240));
@@ -892,7 +896,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q134ActionPerformed(evt);
             }
         });
-        add(q134, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 100, 40));
+        aa1.add(q134, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 100, 40));
 
         q135.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q135.setForeground(new java.awt.Color(240, 240, 240));
@@ -906,7 +910,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q135ActionPerformed(evt);
             }
         });
-        add(q135, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 100, 40));
+        aa1.add(q135, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 100, 40));
 
         q136.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q136.setForeground(new java.awt.Color(240, 240, 240));
@@ -920,7 +924,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q136ActionPerformed(evt);
             }
         });
-        add(q136, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 310, 100, 40));
+        aa1.add(q136, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 310, 100, 40));
 
         q137.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q137.setForeground(new java.awt.Color(240, 240, 240));
@@ -934,7 +938,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q137ActionPerformed(evt);
             }
         });
-        add(q137, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 100, 40));
+        aa1.add(q137, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 100, 40));
 
         q138.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q138.setForeground(new java.awt.Color(240, 240, 240));
@@ -948,7 +952,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q138ActionPerformed(evt);
             }
         });
-        add(q138, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, 100, 40));
+        aa1.add(q138, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, 100, 40));
 
         q121.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q121.setForeground(new java.awt.Color(240, 240, 240));
@@ -962,7 +966,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q121ActionPerformed(evt);
             }
         });
-        add(q121, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 100, 40));
+        aa1.add(q121, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 100, 40));
 
         q90.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q90.setForeground(new java.awt.Color(240, 240, 240));
@@ -976,7 +980,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q90ActionPerformed(evt);
             }
         });
-        add(q90, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 700, 70, 60));
+        aa1.add(q90, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 700, 70, 60));
 
         q101.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q101.setForeground(new java.awt.Color(240, 240, 240));
@@ -990,7 +994,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q101ActionPerformed(evt);
             }
         });
-        add(q101, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 580, 70, 60));
+        aa1.add(q101, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 580, 70, 60));
 
         q102.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q102.setForeground(new java.awt.Color(240, 240, 240));
@@ -1004,7 +1008,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q102ActionPerformed(evt);
             }
         });
-        add(q102, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 560, 70, 80));
+        aa1.add(q102, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 560, 70, 80));
 
         q120.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q120.setForeground(new java.awt.Color(240, 240, 240));
@@ -1018,7 +1022,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q120ActionPerformed(evt);
             }
         });
-        add(q120, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 350, 60, 70));
+        aa1.add(q120, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 350, 60, 70));
 
         q119.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q119.setForeground(new java.awt.Color(240, 240, 240));
@@ -1032,7 +1036,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q119ActionPerformed(evt);
             }
         });
-        add(q119, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 70, 60));
+        aa1.add(q119, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 70, 60));
 
         q118.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q118.setForeground(new java.awt.Color(240, 240, 240));
@@ -1046,7 +1050,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q118ActionPerformed(evt);
             }
         });
-        add(q118, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 70, 60));
+        aa1.add(q118, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 70, 60));
 
         q117.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q117.setForeground(new java.awt.Color(240, 240, 240));
@@ -1060,7 +1064,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q117ActionPerformed(evt);
             }
         });
-        add(q117, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 70, 60));
+        aa1.add(q117, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 70, 60));
 
         q116.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q116.setForeground(new java.awt.Color(240, 240, 240));
@@ -1074,7 +1078,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q116ActionPerformed(evt);
             }
         });
-        add(q116, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 80, 60));
+        aa1.add(q116, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 80, 60));
 
         q115.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q115.setForeground(new java.awt.Color(240, 240, 240));
@@ -1088,7 +1092,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q115ActionPerformed(evt);
             }
         });
-        add(q115, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 80, 60));
+        aa1.add(q115, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 80, 60));
 
         q114.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q114.setForeground(new java.awt.Color(240, 240, 240));
@@ -1102,7 +1106,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q114ActionPerformed(evt);
             }
         });
-        add(q114, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 80, 60));
+        aa1.add(q114, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 80, 60));
 
         q113.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q113.setForeground(new java.awt.Color(240, 240, 240));
@@ -1116,7 +1120,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q113ActionPerformed(evt);
             }
         });
-        add(q113, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 80, 60));
+        aa1.add(q113, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 80, 60));
 
         q112.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q112.setForeground(new java.awt.Color(240, 240, 240));
@@ -1130,7 +1134,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q112ActionPerformed(evt);
             }
         });
-        add(q112, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 70, 60));
+        aa1.add(q112, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 70, 60));
 
         q111.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q111.setForeground(new java.awt.Color(240, 240, 240));
@@ -1144,7 +1148,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q111ActionPerformed(evt);
             }
         });
-        add(q111, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 460, 60, 70));
+        aa1.add(q111, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 460, 60, 70));
 
         q110.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q110.setForeground(new java.awt.Color(240, 240, 240));
@@ -1158,7 +1162,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q110ActionPerformed(evt);
             }
         });
-        add(q110, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 470, 70, 60));
+        aa1.add(q110, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 470, 70, 60));
 
         q109.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q109.setForeground(new java.awt.Color(240, 240, 240));
@@ -1172,7 +1176,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q109ActionPerformed(evt);
             }
         });
-        add(q109, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, 70, 60));
+        aa1.add(q109, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, 70, 60));
 
         q108.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q108.setForeground(new java.awt.Color(240, 240, 240));
@@ -1186,7 +1190,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q108ActionPerformed(evt);
             }
         });
-        add(q108, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 70, 60));
+        aa1.add(q108, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 70, 60));
 
         q107.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q107.setForeground(new java.awt.Color(240, 240, 240));
@@ -1200,7 +1204,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q107ActionPerformed(evt);
             }
         });
-        add(q107, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 70, 60));
+        aa1.add(q107, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 70, 60));
 
         q106.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q106.setForeground(new java.awt.Color(240, 240, 240));
@@ -1214,7 +1218,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q106ActionPerformed(evt);
             }
         });
-        add(q106, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 70, 60));
+        aa1.add(q106, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 70, 60));
 
         q105.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q105.setForeground(new java.awt.Color(240, 240, 240));
@@ -1228,7 +1232,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q105ActionPerformed(evt);
             }
         });
-        add(q105, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 80, 60));
+        aa1.add(q105, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 80, 60));
 
         q104.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q104.setForeground(new java.awt.Color(240, 240, 240));
@@ -1242,7 +1246,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q104ActionPerformed(evt);
             }
         });
-        add(q104, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 70, 60));
+        aa1.add(q104, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 70, 60));
 
         q103.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q103.setForeground(new java.awt.Color(240, 240, 240));
@@ -1256,7 +1260,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q103ActionPerformed(evt);
             }
         });
-        add(q103, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 80, 60));
+        aa1.add(q103, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 80, 60));
 
         q99.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q99.setForeground(new java.awt.Color(240, 240, 240));
@@ -1270,7 +1274,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q99ActionPerformed(evt);
             }
         });
-        add(q99, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 580, 70, 60));
+        aa1.add(q99, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 580, 70, 60));
 
         q98.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q98.setForeground(new java.awt.Color(240, 240, 240));
@@ -1284,7 +1288,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q98ActionPerformed(evt);
             }
         });
-        add(q98, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, 70, 60));
+        aa1.add(q98, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, 70, 60));
 
         q95.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q95.setForeground(new java.awt.Color(240, 240, 240));
@@ -1298,7 +1302,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q95ActionPerformed(evt);
             }
         });
-        add(q95, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 70, 60));
+        aa1.add(q95, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 70, 60));
 
         q94.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q94.setForeground(new java.awt.Color(240, 240, 240));
@@ -1312,7 +1316,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q94ActionPerformed(evt);
             }
         });
-        add(q94, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 580, 70, 60));
+        aa1.add(q94, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 580, 70, 60));
 
         q93.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q93.setForeground(new java.awt.Color(240, 240, 240));
@@ -1326,7 +1330,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q93ActionPerformed(evt);
             }
         });
-        add(q93, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 680, 60, 80));
+        aa1.add(q93, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 680, 60, 80));
 
         q92.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q92.setForeground(new java.awt.Color(240, 240, 240));
@@ -1340,7 +1344,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q92ActionPerformed(evt);
             }
         });
-        add(q92, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 700, 70, 50));
+        aa1.add(q92, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 700, 70, 50));
 
         q86.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q86.setForeground(new java.awt.Color(240, 240, 240));
@@ -1354,7 +1358,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q86ActionPerformed(evt);
             }
         });
-        add(q86, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 690, 80, 70));
+        aa1.add(q86, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 690, 80, 70));
 
         q85.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q85.setForeground(new java.awt.Color(240, 240, 240));
@@ -1368,7 +1372,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q85ActionPerformed(evt);
             }
         });
-        add(q85, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 690, 80, 70));
+        aa1.add(q85, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 690, 80, 70));
 
         q84.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q84.setForeground(new java.awt.Color(240, 240, 240));
@@ -1382,7 +1386,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q84ActionPerformed(evt);
             }
         });
-        add(q84, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 790, 60, 70));
+        aa1.add(q84, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 790, 60, 70));
 
         q83.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q83.setForeground(new java.awt.Color(240, 240, 240));
@@ -1396,7 +1400,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q83ActionPerformed(evt);
             }
         });
-        add(q83, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 800, 70, 70));
+        aa1.add(q83, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 800, 70, 70));
 
         q82.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q82.setForeground(new java.awt.Color(240, 240, 240));
@@ -1410,7 +1414,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q82ActionPerformed(evt);
             }
         });
-        add(q82, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 800, 70, 70));
+        aa1.add(q82, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 800, 70, 70));
 
         q81.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q81.setForeground(new java.awt.Color(240, 240, 240));
@@ -1424,7 +1428,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q81ActionPerformed(evt);
             }
         });
-        add(q81, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 800, 70, 70));
+        aa1.add(q81, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 800, 70, 70));
 
         q79.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q79.setForeground(new java.awt.Color(240, 240, 240));
@@ -1438,7 +1442,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q79ActionPerformed(evt);
             }
         });
-        add(q79, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 800, 70, 70));
+        aa1.add(q79, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 800, 70, 70));
 
         q78.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q78.setForeground(new java.awt.Color(240, 240, 240));
@@ -1452,7 +1456,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q78ActionPerformed(evt);
             }
         });
-        add(q78, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 800, 70, 70));
+        aa1.add(q78, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 800, 70, 70));
 
         q77.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q77.setForeground(new java.awt.Color(240, 240, 240));
@@ -1466,7 +1470,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q77ActionPerformed(evt);
             }
         });
-        add(q77, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 800, 70, 70));
+        aa1.add(q77, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 800, 70, 70));
 
         q76.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q76.setForeground(new java.awt.Color(240, 240, 240));
@@ -1480,7 +1484,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q76ActionPerformed(evt);
             }
         });
-        add(q76, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 800, 70, 70));
+        aa1.add(q76, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 800, 70, 70));
 
         q75.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q75.setForeground(new java.awt.Color(240, 240, 240));
@@ -1494,7 +1498,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q75ActionPerformed(evt);
             }
         });
-        add(q75, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 890, 60, 80));
+        aa1.add(q75, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 890, 60, 80));
 
         q74.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q74.setForeground(new java.awt.Color(240, 240, 240));
@@ -1508,7 +1512,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q74ActionPerformed(evt);
             }
         });
-        add(q74, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 900, 70, 70));
+        aa1.add(q74, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 900, 70, 70));
 
         q72.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q72.setForeground(new java.awt.Color(240, 240, 240));
@@ -1522,7 +1526,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q72ActionPerformed(evt);
             }
         });
-        add(q72, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 900, 70, 70));
+        aa1.add(q72, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 900, 70, 70));
 
         q71.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q71.setForeground(new java.awt.Color(240, 240, 240));
@@ -1536,7 +1540,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q71ActionPerformed(evt);
             }
         });
-        add(q71, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 900, 70, 70));
+        aa1.add(q71, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 900, 70, 70));
 
         q68.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q68.setForeground(new java.awt.Color(240, 240, 240));
@@ -1550,7 +1554,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q68ActionPerformed(evt);
             }
         });
-        add(q68, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 910, 80, 60));
+        aa1.add(q68, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 910, 80, 60));
 
         q67.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q67.setForeground(new java.awt.Color(240, 240, 240));
@@ -1564,7 +1568,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q67ActionPerformed(evt);
             }
         });
-        add(q67, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 910, 80, 60));
+        aa1.add(q67, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 910, 80, 60));
 
         q66.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q66.setForeground(new java.awt.Color(240, 240, 240));
@@ -1578,7 +1582,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q66ActionPerformed(evt);
             }
         });
-        add(q66, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 980, 50, 80));
+        aa1.add(q66, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 980, 50, 80));
 
         q65.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q65.setForeground(new java.awt.Color(240, 240, 240));
@@ -1592,7 +1596,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q65ActionPerformed(evt);
             }
         });
-        add(q65, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1000, 70, 60));
+        aa1.add(q65, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1000, 70, 60));
 
         q64.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q64.setForeground(new java.awt.Color(240, 240, 240));
@@ -1606,7 +1610,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q64ActionPerformed(evt);
             }
         });
-        add(q64, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1000, 70, 60));
+        aa1.add(q64, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1000, 70, 60));
 
         q63.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q63.setForeground(new java.awt.Color(240, 240, 240));
@@ -1620,7 +1624,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q63ActionPerformed(evt);
             }
         });
-        add(q63, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1000, 70, 60));
+        aa1.add(q63, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1000, 70, 60));
 
         q62.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q62.setForeground(new java.awt.Color(240, 240, 240));
@@ -1634,7 +1638,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q62ActionPerformed(evt);
             }
         });
-        add(q62, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 990, 70, 70));
+        aa1.add(q62, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 990, 70, 70));
 
         q61.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q61.setForeground(new java.awt.Color(240, 240, 240));
@@ -1648,7 +1652,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q61ActionPerformed(evt);
             }
         });
-        add(q61, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 980, 50, 80));
+        aa1.add(q61, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 980, 50, 80));
 
         q58.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q58.setForeground(new java.awt.Color(240, 240, 240));
@@ -1662,7 +1666,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q58ActionPerformed(evt);
             }
         });
-        add(q58, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 990, 70, 70));
+        aa1.add(q58, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 990, 70, 70));
 
         q57.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q57.setForeground(new java.awt.Color(240, 240, 240));
@@ -1676,7 +1680,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q57ActionPerformed(evt);
             }
         });
-        add(q57, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 990, 60, 70));
+        aa1.add(q57, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 990, 60, 70));
 
         q56.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q56.setForeground(new java.awt.Color(240, 240, 240));
@@ -1690,7 +1694,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q56ActionPerformed(evt);
             }
         });
-        add(q56, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 990, 60, 70));
+        aa1.add(q56, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 990, 60, 70));
 
         q55.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q55.setForeground(new java.awt.Color(240, 240, 240));
@@ -1704,7 +1708,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q55ActionPerformed(evt);
             }
         });
-        add(q55, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1080, 50, 70));
+        aa1.add(q55, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1080, 50, 70));
 
         q54.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q54.setForeground(new java.awt.Color(240, 240, 240));
@@ -1718,7 +1722,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q54ActionPerformed(evt);
             }
         });
-        add(q54, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1090, 70, 60));
+        aa1.add(q54, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1090, 70, 60));
 
         q53.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q53.setForeground(new java.awt.Color(240, 240, 240));
@@ -1732,7 +1736,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q53ActionPerformed(evt);
             }
         });
-        add(q53, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1090, 60, 60));
+        aa1.add(q53, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1090, 60, 60));
 
         q52.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q52.setForeground(new java.awt.Color(240, 240, 240));
@@ -1746,7 +1750,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q52ActionPerformed(evt);
             }
         });
-        add(q52, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1090, 60, 60));
+        aa1.add(q52, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1090, 60, 60));
 
         q51.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q51.setForeground(new java.awt.Color(240, 240, 240));
@@ -1760,7 +1764,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q51ActionPerformed(evt);
             }
         });
-        add(q51, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 1090, 70, 60));
+        aa1.add(q51, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 1090, 70, 60));
 
         q49.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q49.setForeground(new java.awt.Color(240, 240, 240));
@@ -1774,7 +1778,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q49ActionPerformed(evt);
             }
         });
-        add(q49, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1090, 80, 60));
+        aa1.add(q49, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1090, 80, 60));
 
         q48.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q48.setForeground(new java.awt.Color(240, 240, 240));
@@ -1788,7 +1792,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q48ActionPerformed(evt);
             }
         });
-        add(q48, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1090, 80, 60));
+        aa1.add(q48, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1090, 80, 60));
 
         q47.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q47.setForeground(new java.awt.Color(240, 240, 240));
@@ -1802,7 +1806,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q47ActionPerformed(evt);
             }
         });
-        add(q47, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 1090, 80, 60));
+        aa1.add(q47, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 1090, 80, 60));
 
         q46.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q46.setForeground(new java.awt.Color(240, 240, 240));
@@ -1816,7 +1820,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q46ActionPerformed(evt);
             }
         });
-        add(q46, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 1090, 80, 60));
+        aa1.add(q46, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 1090, 80, 60));
 
         q45.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q45.setForeground(new java.awt.Color(240, 240, 240));
@@ -1830,7 +1834,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q45ActionPerformed(evt);
             }
         });
-        add(q45, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 1090, 70, 60));
+        aa1.add(q45, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 1090, 70, 60));
 
         q44.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q44.setForeground(new java.awt.Color(240, 240, 240));
@@ -1844,7 +1848,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q44ActionPerformed(evt);
             }
         });
-        add(q44, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1170, 50, 70));
+        aa1.add(q44, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1170, 50, 70));
 
         q43.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q43.setForeground(new java.awt.Color(240, 240, 240));
@@ -1858,7 +1862,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q43ActionPerformed(evt);
             }
         });
-        add(q43, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1190, 70, 50));
+        aa1.add(q43, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1190, 70, 50));
 
         q42.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q42.setForeground(new java.awt.Color(240, 240, 240));
@@ -1872,7 +1876,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q42ActionPerformed(evt);
             }
         });
-        add(q42, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1190, 70, 50));
+        aa1.add(q42, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1190, 70, 50));
 
         q41.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q41.setForeground(new java.awt.Color(240, 240, 240));
@@ -1886,7 +1890,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q41ActionPerformed(evt);
             }
         });
-        add(q41, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1180, 60, 60));
+        aa1.add(q41, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1180, 60, 60));
 
         q39.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q39.setForeground(new java.awt.Color(240, 240, 240));
@@ -1900,7 +1904,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q39ActionPerformed(evt);
             }
         });
-        add(q39, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1180, 70, 60));
+        aa1.add(q39, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1180, 70, 60));
 
         q38.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q38.setForeground(new java.awt.Color(240, 240, 240));
@@ -1914,7 +1918,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q38ActionPerformed(evt);
             }
         });
-        add(q38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1180, 70, 60));
+        aa1.add(q38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1180, 70, 60));
 
         q37.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q37.setForeground(new java.awt.Color(240, 240, 240));
@@ -1928,7 +1932,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q37ActionPerformed(evt);
             }
         });
-        add(q37, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1180, 70, 60));
+        aa1.add(q37, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1180, 70, 60));
 
         q36.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q36.setForeground(new java.awt.Color(240, 240, 240));
@@ -1942,7 +1946,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q36ActionPerformed(evt);
             }
         });
-        add(q36, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 1180, 70, 60));
+        aa1.add(q36, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 1180, 70, 60));
 
         q35.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q35.setForeground(new java.awt.Color(240, 240, 240));
@@ -1956,7 +1960,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q35ActionPerformed(evt);
             }
         });
-        add(q35, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 1180, 70, 60));
+        aa1.add(q35, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 1180, 70, 60));
 
         q34.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q34.setForeground(new java.awt.Color(240, 240, 240));
@@ -1970,7 +1974,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q34ActionPerformed(evt);
             }
         });
-        add(q34, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 1180, 70, 60));
+        aa1.add(q34, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 1180, 70, 60));
 
         q33.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q33.setForeground(new java.awt.Color(240, 240, 240));
@@ -1984,7 +1988,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q33ActionPerformed(evt);
             }
         });
-        add(q33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1250, 40, 80));
+        aa1.add(q33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1250, 40, 80));
 
         q32.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q32.setForeground(new java.awt.Color(240, 240, 240));
@@ -1998,7 +2002,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q32ActionPerformed(evt);
             }
         });
-        add(q32, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1270, 70, 60));
+        aa1.add(q32, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1270, 70, 60));
 
         q31.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q31.setForeground(new java.awt.Color(240, 240, 240));
@@ -2012,7 +2016,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q31ActionPerformed(evt);
             }
         });
-        add(q31, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1270, 70, 60));
+        aa1.add(q31, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 1270, 70, 60));
 
         q30.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q30.setForeground(new java.awt.Color(240, 240, 240));
@@ -2026,7 +2030,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q30ActionPerformed(evt);
             }
         });
-        add(q30, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1270, 70, 60));
+        aa1.add(q30, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1270, 70, 60));
 
         q24.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q24.setForeground(new java.awt.Color(240, 240, 240));
@@ -2040,7 +2044,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q24ActionPerformed(evt);
             }
         });
-        add(q24, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 1270, 80, 60));
+        aa1.add(q24, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 1270, 80, 60));
 
         q29.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q29.setForeground(new java.awt.Color(240, 240, 240));
@@ -2054,7 +2058,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q29ActionPerformed(evt);
             }
         });
-        add(q29, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1270, 70, 60));
+        aa1.add(q29, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1270, 70, 60));
 
         q28.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q28.setForeground(new java.awt.Color(240, 240, 240));
@@ -2068,7 +2072,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q28ActionPerformed(evt);
             }
         });
-        add(q28, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1270, 70, 60));
+        aa1.add(q28, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1270, 70, 60));
 
         q27.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q27.setForeground(new java.awt.Color(240, 240, 240));
@@ -2082,7 +2086,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q27ActionPerformed(evt);
             }
         });
-        add(q27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1270, 70, 60));
+        aa1.add(q27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1270, 70, 60));
 
         q26.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q26.setForeground(new java.awt.Color(240, 240, 240));
@@ -2096,7 +2100,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q26ActionPerformed(evt);
             }
         });
-        add(q26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1270, 80, 60));
+        aa1.add(q26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1270, 80, 60));
 
         q22.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q22.setForeground(new java.awt.Color(240, 240, 240));
@@ -2110,7 +2114,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q22ActionPerformed(evt);
             }
         });
-        add(q22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1360, 40, 80));
+        aa1.add(q22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1360, 40, 80));
 
         q21.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q21.setForeground(new java.awt.Color(240, 240, 240));
@@ -2124,7 +2128,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q21ActionPerformed(evt);
             }
         });
-        add(q21, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1380, 70, 60));
+        aa1.add(q21, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1380, 70, 60));
 
         q19.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q19.setForeground(new java.awt.Color(240, 240, 240));
@@ -2138,7 +2142,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q19ActionPerformed(evt);
             }
         });
-        add(q19, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1380, 70, 60));
+        aa1.add(q19, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 1380, 70, 60));
 
         q18.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q18.setForeground(new java.awt.Color(240, 240, 240));
@@ -2152,7 +2156,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q18ActionPerformed(evt);
             }
         });
-        add(q18, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1380, 70, 60));
+        aa1.add(q18, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1380, 70, 60));
 
         q17.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q17.setForeground(new java.awt.Color(240, 240, 240));
@@ -2166,7 +2170,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q17ActionPerformed(evt);
             }
         });
-        add(q17, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1380, 70, 60));
+        aa1.add(q17, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1380, 70, 60));
 
         q16.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q16.setForeground(new java.awt.Color(240, 240, 240));
@@ -2180,7 +2184,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q16ActionPerformed(evt);
             }
         });
-        add(q16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1380, 70, 60));
+        aa1.add(q16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1380, 70, 60));
 
         q15.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q15.setForeground(new java.awt.Color(240, 240, 240));
@@ -2194,7 +2198,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q15ActionPerformed(evt);
             }
         });
-        add(q15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1380, 70, 60));
+        aa1.add(q15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1380, 70, 60));
 
         q14.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q14.setForeground(new java.awt.Color(240, 240, 240));
@@ -2208,7 +2212,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q14ActionPerformed(evt);
             }
         });
-        add(q14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 1380, 70, 50));
+        aa1.add(q14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 1380, 70, 50));
 
         q13.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q13.setForeground(new java.awt.Color(240, 240, 240));
@@ -2222,7 +2226,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q13ActionPerformed(evt);
             }
         });
-        add(q13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 1380, 70, 50));
+        aa1.add(q13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 1380, 70, 50));
 
         q12.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q12.setForeground(new java.awt.Color(240, 240, 240));
@@ -2236,7 +2240,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q12ActionPerformed(evt);
             }
         });
-        add(q12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 1380, 60, 60));
+        aa1.add(q12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 1380, 60, 60));
 
         q11.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q11.setForeground(new java.awt.Color(240, 240, 240));
@@ -2250,7 +2254,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q11ActionPerformed(evt);
             }
         });
-        add(q11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1460, 40, 80));
+        aa1.add(q11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 1460, 40, 80));
 
         q9.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q9.setForeground(new java.awt.Color(240, 240, 240));
@@ -2264,7 +2268,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q9ActionPerformed(evt);
             }
         });
-        add(q9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 1480, 70, 60));
+        aa1.add(q9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 1480, 70, 60));
 
         q8.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q8.setForeground(new java.awt.Color(240, 240, 240));
@@ -2278,7 +2282,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q8ActionPerformed(evt);
             }
         });
-        add(q8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 1480, 70, 60));
+        aa1.add(q8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 1480, 70, 60));
 
         q7.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q7.setForeground(new java.awt.Color(240, 240, 240));
@@ -2292,7 +2296,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q7ActionPerformed(evt);
             }
         });
-        add(q7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1480, 70, 60));
+        aa1.add(q7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1480, 70, 60));
 
         q6.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q6.setForeground(new java.awt.Color(240, 240, 240));
@@ -2306,7 +2310,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q6ActionPerformed(evt);
             }
         });
-        add(q6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1480, 70, 60));
+        aa1.add(q6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1480, 70, 60));
 
         q5.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q5.setForeground(new java.awt.Color(240, 240, 240));
@@ -2320,7 +2324,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q5ActionPerformed(evt);
             }
         });
-        add(q5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1480, 70, 60));
+        aa1.add(q5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 1480, 70, 60));
 
         q4.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q4.setForeground(new java.awt.Color(240, 240, 240));
@@ -2334,7 +2338,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q4ActionPerformed(evt);
             }
         });
-        add(q4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1480, 70, 60));
+        aa1.add(q4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 1480, 70, 60));
 
         q3.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q3.setForeground(new java.awt.Color(240, 240, 240));
@@ -2348,7 +2352,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q3ActionPerformed(evt);
             }
         });
-        add(q3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 1480, 70, 60));
+        aa1.add(q3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 1480, 70, 60));
 
         q2.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q2.setForeground(new java.awt.Color(240, 240, 240));
@@ -2362,7 +2366,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q2ActionPerformed(evt);
             }
         });
-        add(q2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 1480, 70, 60));
+        aa1.add(q2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 1480, 70, 60));
 
         q1.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q1.setForeground(new java.awt.Color(240, 240, 240));
@@ -2376,7 +2380,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q1ActionPerformed(evt);
             }
         });
-        add(q1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 1480, 70, 60));
+        aa1.add(q1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 1480, 70, 60));
 
         q10.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q10.setForeground(new java.awt.Color(240, 240, 240));
@@ -2390,7 +2394,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q10ActionPerformed(evt);
             }
         });
-        add(q10, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1480, 70, 60));
+        aa1.add(q10, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 1480, 70, 60));
 
         q20.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q20.setForeground(new java.awt.Color(240, 240, 240));
@@ -2404,7 +2408,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q20ActionPerformed(evt);
             }
         });
-        add(q20, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 1380, 70, 60));
+        aa1.add(q20, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 1380, 70, 60));
 
         q40.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q40.setForeground(new java.awt.Color(240, 240, 240));
@@ -2418,7 +2422,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q40ActionPerformed(evt);
             }
         });
-        add(q40, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1180, 70, 60));
+        aa1.add(q40, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 1180, 70, 60));
 
         q50.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q50.setForeground(new java.awt.Color(240, 240, 240));
@@ -2432,7 +2436,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q50ActionPerformed(evt);
             }
         });
-        add(q50, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1080, 50, 70));
+        aa1.add(q50, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 1080, 50, 70));
 
         q59.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q59.setForeground(new java.awt.Color(240, 240, 240));
@@ -2446,7 +2450,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q59ActionPerformed(evt);
             }
         });
-        add(q59, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 990, 70, 70));
+        aa1.add(q59, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 990, 70, 70));
 
         q60.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q60.setForeground(new java.awt.Color(240, 240, 240));
@@ -2460,7 +2464,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q60ActionPerformed(evt);
             }
         });
-        add(q60, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 990, 70, 70));
+        aa1.add(q60, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 990, 70, 70));
 
         q70.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q70.setForeground(new java.awt.Color(240, 240, 240));
@@ -2474,7 +2478,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q70ActionPerformed(evt);
             }
         });
-        add(q70, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 900, 70, 70));
+        aa1.add(q70, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 900, 70, 70));
 
         q80.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q80.setForeground(new java.awt.Color(240, 240, 240));
@@ -2488,7 +2492,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q80ActionPerformed(evt);
             }
         });
-        add(q80, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 800, 70, 70));
+        aa1.add(q80, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 800, 70, 70));
 
         q144.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q144.setForeground(new java.awt.Color(240, 240, 240));
@@ -2502,7 +2506,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q144ActionPerformed(evt);
             }
         });
-        add(q144, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 1430, 70, 50));
+        aa1.add(q144, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 1430, 70, 50));
 
         q145.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q145.setForeground(new java.awt.Color(240, 240, 240));
@@ -2516,7 +2520,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q145ActionPerformed(evt);
             }
         });
-        add(q145, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 1090, 30, 80));
+        aa1.add(q145, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 1090, 30, 80));
 
         q147.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q147.setForeground(new java.awt.Color(240, 240, 240));
@@ -2530,7 +2534,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q147ActionPerformed(evt);
             }
         });
-        add(q147, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, 80, 50));
+        aa1.add(q147, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, 80, 50));
 
         q146.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q146.setForeground(new java.awt.Color(240, 240, 240));
@@ -2544,7 +2548,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q146ActionPerformed(evt);
             }
         });
-        add(q146, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 640, 80, 60));
+        aa1.add(q146, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 640, 80, 60));
 
         q91.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
         q91.setForeground(new java.awt.Color(240, 240, 240));
@@ -2558,7 +2562,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 q91ActionPerformed(evt);
             }
         });
-        add(q91, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 680, 70, 80));
+        aa1.add(q91, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 680, 70, 80));
 
         jBPrueba.setText("Prueba");
         jBPrueba.addActionListener(new java.awt.event.ActionListener() {
@@ -2566,7 +2570,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 jBPruebaActionPerformed(evt);
             }
         });
-        add(jBPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 1630, -1, -1));
+        aa1.add(jBPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 1630, -1, -1));
 
         jBPrueba1.setText("Enter");
         jBPrueba1.addActionListener(new java.awt.event.ActionListener() {
@@ -2574,10 +2578,18 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
                 jBPrueba1ActionPerformed(evt);
             }
         });
-        add(jBPrueba1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 1690, -1, -1));
+        aa1.add(jBPrueba1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 1690, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Alumbrado Division Insdustrial Sopraval Rev. 2 - 2015 (cambio entretecho)-Presentación.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        aa1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1100, -1));
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 57);
+        add(aa1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void q123ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q123ActionPerformed
@@ -3282,6 +3294,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel aa1;
     private javax.swing.JButton jBPrueba;
     private javax.swing.JButton jBPrueba1;
     private javax.swing.JLabel jLabel1;

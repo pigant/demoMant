@@ -84,9 +84,9 @@ public void envioCorreosAviso(String equipo){
             message.setFrom(new InternetAddress("ff.carreno@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     misDs);
-            message.setSubject("Correo mantencios preventivo");
-            message.setText("Se ingreso mantención preventiva por mucho "
-                    + "tiempo sin revision a "+equipo);
+            message.setSubject("Correo revision visual");
+            message.setText("Se realizara revision visual debido a mucho "
+                    + "tiempo sin actividad, a los equipos: "+equipo);
              Transport.send(message);
             
              
