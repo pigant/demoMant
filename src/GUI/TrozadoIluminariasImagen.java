@@ -2580,7 +2580,7 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
         });
         aa1.add(jBPrueba1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 1690, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Alumbrado Division Insdustrial Sopraval Rev. 2 - 2015 (cambio entretecho)-Presentación.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Alumbrado Division Insdustrial Sopraval Rev. 2 - 2015 (cambio entretecho)-Presentación.png"))); // NOI18N
         aa1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1100, -1));
 
         gridBagConstraints = new java.awt.GridBagConstraints();

@@ -3761,7 +3761,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/GUI/Alumbrado Division Insdustrial Sopraval Rev. 2 - 2015 (cambio entretecho)-Presentaci&#xf3;n.png"/>
+              <Image iconType="3" name="/Imagenes/Alumbrado Division Insdustrial Sopraval Rev. 2 - 2015 (cambio entretecho)-Presentaci&#xf3;n.png"/>
             </Property>
           </Properties>
           <Constraints>
