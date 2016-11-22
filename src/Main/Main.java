@@ -19,18 +19,16 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
-        
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
         user = new BLL.Usuarios();
     }
 	
     public void cambioVentana(javax.swing.JPanel jp){
-        jp.setPreferredSize(jPanel3.getSize());
-        this.jPanel3.removeAll();
-        this.jPanel3.add(jp);
-        this.jPanel3.updateUI();
-        this.jPanel3.repaint();
+        jp.setPreferredSize(contenedorPanel.getSize());
+        this.contenedorPanel.removeAll();
+        this.contenedorPanel.add(jp);
+        this.contenedorPanel.updateUI();
+        this.contenedorPanel.repaint();
         repaint();
     }
     
@@ -42,16 +40,19 @@ public class Main extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        contenedorPanel = new javax.swing.JPanel();
+        ingresoPanel = new javax.swing.JPanel();
+        tituloPanel = new javax.swing.JPanel();
+        tituloLbl = new javax.swing.JLabel();
+        logoBtn = new javax.swing.JButton();
+        formularioPanel = new javax.swing.JPanel();
         nombreLbl = new javax.swing.JLabel();
         nombreTxt = new javax.swing.JTextField();
         contrasenaLbl = new javax.swing.JLabel();
-        entrarBtn = new javax.swing.JButton();
         contrasenaTxt = new javax.swing.JPasswordField();
-        tituloLbl = new javax.swing.JLabel();
-        logoBtn = new javax.swing.JButton();
+        entrarBtn = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         areaMenu = new javax.swing.JMenu();
         menuGeneralItem = new javax.swing.JMenuItem();
@@ -65,16 +66,75 @@ public class Main extends javax.swing.JFrame {
         procesosPosteriores_iluminariasItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(MAXIMIZED_BOTH);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+        contenedorPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        contenedorPanel.setLayout(new javax.swing.BoxLayout(contenedorPanel, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ingresoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ingresoPanel.setLayout(new java.awt.GridBagLayout());
+
+        tituloPanel.setMinimumSize(new java.awt.Dimension(0, 0));
+        tituloPanel.setPreferredSize(new java.awt.Dimension(411, 50));
+
+        tituloLbl.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        tituloLbl.setForeground(new java.awt.Color(75, 113, 125));
+        tituloLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloLbl.setText("DEMO");
+        tituloLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tituloPanel.add(tituloLbl);
+
+        logoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sopraval.png"))); // NOI18N
+        logoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoBtnActionPerformed(evt);
+            }
+        });
+        tituloPanel.add(logoBtn);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 80;
+        gridBagConstraints.ipady = 72;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        ingresoPanel.add(tituloPanel, gridBagConstraints);
+
+        formularioPanel.setLayout(new java.awt.GridBagLayout());
 
         nombreLbl.setText("Nombre: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 11, 0);
+        formularioPanel.add(nombreLbl, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 130;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 6, 11, 0);
+        formularioPanel.add(nombreTxt, gridBagConstraints);
 
         contrasenaLbl.setText("Contraseña:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        formularioPanel.add(contrasenaLbl, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 6, 0, 0);
+        formularioPanel.add(contrasenaTxt, gridBagConstraints);
 
         entrarBtn.setForeground(new java.awt.Color(65, 95, 105));
         entrarBtn.setText("Entrar");
@@ -83,64 +143,26 @@ public class Main extends javax.swing.JFrame {
                 entrarBtnActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 180;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        formularioPanel.add(entrarBtn, gridBagConstraints);
 
-        tituloLbl.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        tituloLbl.setForeground(new java.awt.Color(75, 113, 125));
-        tituloLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloLbl.setText("DEMO");
-        tituloLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        ingresoPanel.add(formularioPanel, gridBagConstraints);
 
-        logoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sopraval.png"))); // NOI18N
-        logoBtn.setText("jButton2");
-        logoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoBtnActionPerformed(evt);
-            }
-        });
+        contenedorPanel.add(ingresoPanel);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(entrarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tituloLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contrasenaLbl, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nombreLbl, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombreTxt)
-                            .addComponent(logoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contrasenaTxt))))
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(nombreLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nombreTxt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(contrasenaLbl)
-                    .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(entrarBtn)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-
-        jPanel3.add(jPanel1);
-
-        getContentPane().add(jPanel3);
+        getContentPane().add(contenedorPanel);
 
         areaMenu.setText("AREA");
         areaMenu.setEnabled(false);
@@ -287,15 +309,16 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu areaMenu;
+    private javax.swing.JPanel contenedorPanel;
     private javax.swing.JLabel contrasenaLbl;
     private javax.swing.JPasswordField contrasenaTxt;
     private javax.swing.JMenu empaqueItem;
     private javax.swing.JMenuItem empaque_evaporadoresItem;
     private javax.swing.JMenuItem empaque_iluminariasItem;
     private javax.swing.JButton entrarBtn;
+    private javax.swing.JPanel formularioPanel;
+    private javax.swing.JPanel ingresoPanel;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton logoBtn;
     private javax.swing.JMenuItem menuGeneralItem;
     private javax.swing.JLabel nombreLbl;
@@ -303,6 +326,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu procesosPosterioresItem;
     private javax.swing.JMenuItem procesosPosteriores_iluminariasItem;
     private javax.swing.JLabel tituloLbl;
+    private javax.swing.JPanel tituloPanel;
     private javax.swing.JMenu trozadoItem;
     private javax.swing.JMenuItem trozado_evaporadoresItem;
     private javax.swing.JMenuItem trozado_iluminariasItem;
