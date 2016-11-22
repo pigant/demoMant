@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Main;
 
 import GUI.EmpaqueEvaporadoresGui;
@@ -11,68 +6,31 @@ import GUI.MenuGui;
 import GUI.ProcesosPosterioresIluminariasGui;
 import GUI.TrozadoEvaporadoresGui;
 import GUI.TrozadosIluminariasGui;
-import java.awt.BorderLayout;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import org.omg.CORBA.BAD_CONTEXT;
 
 /**
  *
  * @author CARR
  */
 public class Main extends javax.swing.JFrame {
-private BLL.Usuarios user;
-private final javax.swing.JFrame jj;
+
+	private BLL.Usuarios user;
     /**
      * Creates new form Main
      */
     public Main() {
         
         initComponents();
-        jj = this;
-        
         setExtendedState(MAXIMIZED_BOTH);
-        
         user = new BLL.Usuarios();
-        addComponentListener(new ComponentListener() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                jPanel3.updateUI();
-                jPanel3.repaint();
-                jj.repaint();
-            }
-
-            @Override
-            public void componentMoved(ComponentEvent e) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void componentShown(ComponentEvent e) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void componentHidden(ComponentEvent e) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
     }
+	
     public void cambioVentana(javax.swing.JPanel jp){
-        this.jPanel3.removeAll();
         jp.setPreferredSize(jPanel3.getSize());
+        this.jPanel3.removeAll();
         this.jPanel3.add(jp);
-         
-        //this.jPanel3.add(jp, setSize(this.jPanel3.getSize()));
-        
-        
         this.jPanel3.updateUI();
-        
         this.jPanel3.repaint();
-       
         repaint();
     }
     
@@ -87,24 +45,24 @@ private final javax.swing.JFrame jj;
 
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        nombreLbl = new javax.swing.JLabel();
+        nombreTxt = new javax.swing.JTextField();
+        contrasenaLbl = new javax.swing.JLabel();
+        entrarBtn = new javax.swing.JButton();
+        contrasenaTxt = new javax.swing.JPasswordField();
+        tituloLbl = new javax.swing.JLabel();
+        logoBtn = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        areaMenu = new javax.swing.JMenu();
+        menuGeneralItem = new javax.swing.JMenuItem();
+        trozadoItem = new javax.swing.JMenu();
+        trozado_iluminariasItem = new javax.swing.JMenuItem();
+        trozado_evaporadoresItem = new javax.swing.JMenuItem();
+        empaqueItem = new javax.swing.JMenu();
+        empaque_iluminariasItem = new javax.swing.JMenuItem();
+        empaque_evaporadoresItem = new javax.swing.JMenuItem();
+        procesosPosterioresItem = new javax.swing.JMenu();
+        procesosPosteriores_iluminariasItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -114,27 +72,29 @@ private final javax.swing.JFrame jj;
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("Nombre: ");
+        nombreLbl.setText("Nombre: ");
 
-        jLabel2.setText("Contraseña:");
+        contrasenaLbl.setText("Contraseña:");
 
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        entrarBtn.setForeground(new java.awt.Color(65, 95, 105));
+        entrarBtn.setText("Entrar");
+        entrarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                entrarBtnActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("DEMO");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tituloLbl.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        tituloLbl.setForeground(new java.awt.Color(75, 113, 125));
+        tituloLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloLbl.setText("DEMO");
+        tituloLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sopraval.png"))); // NOI18N
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        logoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sopraval.png"))); // NOI18N
+        logoBtn.setText("jButton2");
+        logoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                logoBtnActionPerformed(evt);
             }
         });
 
@@ -143,170 +103,155 @@ private final javax.swing.JFrame jj;
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(entrarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(tituloLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contrasenaLbl, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nombreLbl, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreTxt)
+                            .addComponent(logoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contrasenaTxt))))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(nombreLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nombreTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(contrasenaLbl)
+                    .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addComponent(entrarBtn)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel1);
 
         getContentPane().add(jPanel3);
 
-        jMenu1.setText("AREA");
-        jMenu1.setEnabled(false);
+        areaMenu.setText("AREA");
+        areaMenu.setEnabled(false);
 
-        jMenuItem6.setText("Menu General");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        menuGeneralItem.setText("Menu General");
+        menuGeneralItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                menuGeneralItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        areaMenu.add(menuGeneralItem);
 
-        jMenu5.setText("Trozado");
+        trozadoItem.setText("Trozado");
 
-        jMenuItem2.setText("Iluminarias");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        trozado_iluminariasItem.setText("Iluminarias");
+        trozado_iluminariasItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                trozado_iluminariasItemActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem2);
+        trozadoItem.add(trozado_iluminariasItem);
 
-        jMenuItem4.setText("Evaporadores");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        trozado_evaporadoresItem.setText("Evaporadores");
+        trozado_evaporadoresItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                trozado_evaporadoresItemActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem4);
+        trozadoItem.add(trozado_evaporadoresItem);
 
-        jMenu1.add(jMenu5);
+        areaMenu.add(trozadoItem);
 
-        jMenu3.setText("Empaque");
+        empaqueItem.setText("Empaque");
 
-        jMenuItem1.setText("Iluminarias");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        empaque_iluminariasItem.setText("Iluminarias");
+        empaque_iluminariasItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                empaque_iluminariasItemActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem1);
+        empaqueItem.add(empaque_iluminariasItem);
 
-        jMenuItem5.setText("Evaporadores");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        empaque_evaporadoresItem.setText("Evaporadores");
+        empaque_evaporadoresItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                empaque_evaporadoresItemActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem5);
+        empaqueItem.add(empaque_evaporadoresItem);
 
-        jMenu1.add(jMenu3);
+        areaMenu.add(empaqueItem);
 
-        jMenu4.setText("Procesos Posteriores");
+        procesosPosterioresItem.setText("Procesos Posteriores");
 
-        jMenuItem3.setText("Iluminarias");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        procesosPosteriores_iluminariasItem.setText("Iluminarias");
+        procesosPosteriores_iluminariasItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                procesosPosteriores_iluminariasItemActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem3);
+        procesosPosterioresItem.add(procesosPosteriores_iluminariasItem);
 
-        jMenu1.add(jMenu4);
+        areaMenu.add(procesosPosterioresItem);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(areaMenu);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if (this.user.readUser(this.jTextField1.getText(), this.jPasswordField1.getText())) {
-            
-            this.jTextField1.setEnabled(false);
-            this.jPasswordField1.setEnabled(false);
-            this.jButton1.setEnabled(false);
-            this.jMenu1.setEnabled(true);
-            JOptionPane.showMessageDialog(null, "todo ok, bienvenido "+ user.getNombre());
-            
+    private void entrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarBtnActionPerformed
+        if (this.user.readUser(this.nombreTxt.getText(), this.contrasenaTxt.getText())) {
+            this.nombreTxt.setEnabled(false);
+            this.contrasenaTxt.setEnabled(false);
+            this.entrarBtn.setEnabled(false);
+            this.areaMenu.setEnabled(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido "+ user.getNombre());
             this.cambioVentana(new MenuGui(this.user));
         }else{
             JOptionPane.showMessageDialog(null, "Algo ocurrio intenta nuevamente");
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_entrarBtnActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+    private void empaque_iluminariasItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empaque_iluminariasItemActionPerformed
         this.cambioVentana(new EmpaqueIluminariasGui(this.user));
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_empaque_iluminariasItemActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+    private void trozado_iluminariasItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trozado_iluminariasItemActionPerformed
         this.cambioVentana(new TrozadosIluminariasGui(this.user));
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_trozado_iluminariasItemActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+    private void procesosPosteriores_iluminariasItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procesosPosteriores_iluminariasItemActionPerformed
         this.cambioVentana(new ProcesosPosterioresIluminariasGui(this.user));
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_procesosPosteriores_iluminariasItemActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+    private void trozado_evaporadoresItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trozado_evaporadoresItemActionPerformed
         this.cambioVentana(new TrozadoEvaporadoresGui(this.user));
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_trozado_evaporadoresItemActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+    private void empaque_evaporadoresItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empaque_evaporadoresItemActionPerformed
         this.cambioVentana(new EmpaqueEvaporadoresGui(this.user));
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_empaque_evaporadoresItemActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
+    private void menuGeneralItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGeneralItemActionPerformed
         this.cambioVentana(new MenuGui(this.user));
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_menuGeneralItemActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void logoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoBtnActionPerformed
+    }//GEN-LAST:event_logoBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,37 +279,32 @@ private final javax.swing.JFrame jj;
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                
-                new Main().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> {
+			new Main().setVisible(true);
+		});
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu areaMenu;
+    private javax.swing.JLabel contrasenaLbl;
+    private javax.swing.JPasswordField contrasenaTxt;
+    private javax.swing.JMenu empaqueItem;
+    private javax.swing.JMenuItem empaque_evaporadoresItem;
+    private javax.swing.JMenuItem empaque_iluminariasItem;
+    private javax.swing.JButton entrarBtn;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton logoBtn;
+    private javax.swing.JMenuItem menuGeneralItem;
+    private javax.swing.JLabel nombreLbl;
+    private javax.swing.JTextField nombreTxt;
+    private javax.swing.JMenu procesosPosterioresItem;
+    private javax.swing.JMenuItem procesosPosteriores_iluminariasItem;
+    private javax.swing.JLabel tituloLbl;
+    private javax.swing.JMenu trozadoItem;
+    private javax.swing.JMenuItem trozado_evaporadoresItem;
+    private javax.swing.JMenuItem trozado_iluminariasItem;
     // End of variables declaration//GEN-END:variables
 }
