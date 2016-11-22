@@ -15,12 +15,14 @@ import javax.swing.JOptionPane;
 public class Main extends javax.swing.JFrame {
 
 	private BLL.Usuarios user;
+        public static Main instancia;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
         user = new BLL.Usuarios();
+        instancia = this;
     }
 	
     public void cambioVentana(javax.swing.JPanel jp){
