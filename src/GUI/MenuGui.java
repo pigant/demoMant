@@ -32,72 +32,77 @@ public class MenuGui extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        tituloLbl = new javax.swing.JLabel();
+        botonesPanel = new javax.swing.JPanel();
+        trozadoBtn = new javax.swing.JButton();
+        empaqueBtn = new javax.swing.JButton();
+        procesosPosterioresBtn = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Menu General");
-        jLabel1.setToolTipText("");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jLabel1.setMaximumSize(new java.awt.Dimension(108, 30));
-        jLabel1.setPreferredSize(new java.awt.Dimension(108, 30));
+        tituloLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tituloLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloLbl.setText("Menu General");
+        tituloLbl.setToolTipText("");
+        tituloLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        tituloLbl.setMaximumSize(new java.awt.Dimension(108, 30));
+        tituloLbl.setPreferredSize(new java.awt.Dimension(108, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 370;
         gridBagConstraints.ipady = 23;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(43, 20, 0, 0);
-        add(jLabel1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(43, 20, 0, 1);
+        add(tituloLbl, gridBagConstraints);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setLayout(new java.awt.GridLayout());
+        botonesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        botonesPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton7.setText("Trozado");
-        jButton7.setToolTipText("");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        trozadoBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        trozadoBtn.setForeground(new java.awt.Color(80, 105, 113));
+        trozadoBtn.setText("Trozado");
+        trozadoBtn.setToolTipText("");
+        trozadoBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        trozadoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        trozadoBtn.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        trozadoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                trozadoBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7);
+        botonesPanel.add(trozadoBtn);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Empaque");
-        jButton1.setToolTipText("");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        empaqueBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        empaqueBtn.setForeground(new java.awt.Color(80, 105, 113));
+        empaqueBtn.setText("Empaque");
+        empaqueBtn.setToolTipText("");
+        empaqueBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        empaqueBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        empaqueBtn.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        empaqueBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                empaqueBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        botonesPanel.add(empaqueBtn);
 
-        jButton9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton9.setText("Procesos Posteriores");
-        jButton9.setToolTipText("");
-        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton9.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        procesosPosterioresBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        procesosPosterioresBtn.setForeground(new java.awt.Color(80, 105, 113));
+        procesosPosterioresBtn.setText("Procesos Posteriores");
+        procesosPosterioresBtn.setToolTipText("");
+        procesosPosterioresBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        procesosPosterioresBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        procesosPosterioresBtn.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        procesosPosterioresBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                procesosPosterioresBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9);
+        botonesPanel.add(procesosPosterioresBtn);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -106,34 +111,34 @@ public class MenuGui extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 99;
         gridBagConstraints.ipady = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 17, 49, 19);
-        add(jPanel1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(18, 17, 49, 0);
+        add(botonesPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void trozadoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trozadoBtnActionPerformed
         // TODO add your handling code here:
         MenuTrozadoJdialog mtj = new MenuTrozadoJdialog(this.user, this, this);
         mtj.setLocationRelativeTo(null);
         mtj.setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_trozadoBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void empaqueBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empaqueBtnActionPerformed
         // TODO add your handling code here:
         new MenuProcesosGui(user, this, this);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_empaqueBtnActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void procesosPosterioresBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procesosPosterioresBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_procesosPosterioresBtnActionPerformed
     private void nuevaVentana(String nombre){
         new EvaporadorCuatroGui2(nombre, this.user).setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel botonesPanel;
+    private javax.swing.JButton empaqueBtn;
+    private javax.swing.JButton procesosPosterioresBtn;
+    private javax.swing.JLabel tituloLbl;
+    private javax.swing.JButton trozadoBtn;
     // End of variables declaration//GEN-END:variables
 }
