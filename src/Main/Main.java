@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
 
-	private BLL.Usuarios user;
-        public static Main instancia;
+	public static Main instancia;
+	public static BLL.Usuarios user;
     /**
      * Creates new form Main
      */
@@ -237,13 +237,13 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarBtnActionPerformed
-        if (this.user.readUser(this.nombreTxt.getText(), this.contrasenaTxt.getText())) {
+        if (Main.user.readUser(this.nombreTxt.getText(), this.contrasenaTxt.getText())) {
             this.nombreTxt.setEnabled(false);
             this.contrasenaTxt.setEnabled(false);
             this.entrarBtn.setEnabled(false);
             this.areaMenu.setEnabled(true);
             JOptionPane.showMessageDialog(null, "Bienvenido "+ user.getNombre());
-            this.cambioVentana(new MenuGui(this.user));
+            this.cambioVentana(new MenuGui());
         }else{
             JOptionPane.showMessageDialog(null, "Algo ocurrio intenta nuevamente");
         }
@@ -251,27 +251,27 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_entrarBtnActionPerformed
 
     private void empaque_iluminariasItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empaque_iluminariasItemActionPerformed
-        this.cambioVentana(new EmpaqueIluminariasGui(this.user));
+        this.cambioVentana(new EmpaqueIluminariasGui());
     }//GEN-LAST:event_empaque_iluminariasItemActionPerformed
 
     private void trozado_iluminariasItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trozado_iluminariasItemActionPerformed
-        this.cambioVentana(new TrozadosIluminariasGui(this.user));
+        this.cambioVentana(new TrozadosIluminariasGui());
     }//GEN-LAST:event_trozado_iluminariasItemActionPerformed
 
     private void procesosPosteriores_iluminariasItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procesosPosteriores_iluminariasItemActionPerformed
-        this.cambioVentana(new ProcesosPosterioresIluminariasGui(this.user));
+        this.cambioVentana(new ProcesosPosterioresIluminariasGui());
     }//GEN-LAST:event_procesosPosteriores_iluminariasItemActionPerformed
 
     private void trozado_evaporadoresItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trozado_evaporadoresItemActionPerformed
-        this.cambioVentana(new TrozadoEvaporadoresGui(this.user));
+        this.cambioVentana(new TrozadoEvaporadoresGui());
     }//GEN-LAST:event_trozado_evaporadoresItemActionPerformed
 
     private void empaque_evaporadoresItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empaque_evaporadoresItemActionPerformed
-        this.cambioVentana(new EmpaqueEvaporadoresGui(this.user));
+        this.cambioVentana(new EmpaqueEvaporadoresGui());
     }//GEN-LAST:event_empaque_evaporadoresItemActionPerformed
 
     private void menuGeneralItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGeneralItemActionPerformed
-        this.cambioVentana(new MenuGui(this.user));
+        this.cambioVentana(new MenuGui());
     }//GEN-LAST:event_menuGeneralItemActionPerformed
 
     private void logoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoBtnActionPerformed
