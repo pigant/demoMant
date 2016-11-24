@@ -18,9 +18,9 @@ public class TrozadoEvaporadoresGui extends javax.swing.JPanel {
      * Creates new form TrozadoGUI
      */
     private BLL.Usuarios user;
-    public TrozadoEvaporadoresGui(BLL.Usuarios user) {
+    public TrozadoEvaporadoresGui() {
         initComponents();
-        this.user = user;
+        this.user = Main.Main.user;
         this.jButton1.setBackground(Color.GREEN);
         this.jButton2.setBackground(Color.GREEN);
         this.jButton3.setBackground(Color.GREEN);

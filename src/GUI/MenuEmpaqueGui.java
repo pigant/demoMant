@@ -130,14 +130,14 @@ javax.swing.JPanel m;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        this.cambioVentana(new EmpaqueIluminariasGui(this.user));
+        this.cambioVentana(new EmpaqueIluminariasGui());
         dispose();
   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        this.cambioVentana(new EmpaqueEvaporadoresGui(this.user));
+        this.cambioVentana(new EmpaqueEvaporadoresGui());
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

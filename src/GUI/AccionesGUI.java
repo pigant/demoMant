@@ -263,19 +263,19 @@ public class AccionesGUI extends javax.swing.JFrame {
                   javax.swing.JPanel upJ = new javax.swing.JPanel();
            
             if (jp.getClass().getName().equals("GUI.TrozadosIluminariasGui")){
-                upJ = new TrozadosIluminariasGui(this.user);
+                upJ = new TrozadosIluminariasGui();
              }else
             if (jp.getClass().getName().equals("GUI.EmpaqueIluminariasGui")){
-                upJ = new EmpaqueIluminariasGui(this.user);
+                upJ = new EmpaqueIluminariasGui();
              }else
             if (jp.getClass().getName().equals("GUI.ProcesosPosterioresIluminariasGui")){
-                upJ = new ProcesosPosterioresIluminariasGui(this.user);
+                upJ = new ProcesosPosterioresIluminariasGui();
              }else
             if (jp.getClass().getName().equals("GUI.TrozadoEvaporadoresGui")){
-                upJ = new TrozadoEvaporadoresGui(this.user);
+                upJ = new TrozadoEvaporadoresGui();
              }else
                 if (jp.getClass().getName().equals("GUI.EmpaqueEvaporadoresGui")){
-                upJ = new EmpaqueEvaporadoresGui(this.user);
+                upJ = new EmpaqueEvaporadoresGui();
              }
             this.jp.removeAll();
             upJ.setSize(this.jp.getSize());

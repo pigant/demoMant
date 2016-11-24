@@ -7,14 +7,10 @@ package GUI;
 
 import BLL.Manteciones;
 import java.awt.Color;
-import java.awt.Component;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -27,473 +23,458 @@ import javax.swing.SwingWorker;
  * @author ferna
  */
 public class TrozadoIluminariasImagen extends javax.swing.JPanel {
-private BLL.Usuarios user;
-private javax.swing.JPanel jp;
-private ArrayList<JButton> jb;
-private JDialog modalDialog;
 
-private class WorkerCorreoAv extends SwingWorker<Void, Void> {
+	private BLL.Usuarios user;
+	private javax.swing.JPanel jp;
+	private ArrayList<JButton> jb;
+	private JDialog modalDialog;
 
-       
-        @Override
-        protected Void doInBackground() throws Exception {
-            new BLL.Correos().envioCorreosAviso(equipos);
-            return null;
-        }
 
-        @Override
-        
+	private class WorkerCorreoAv extends SwingWorker<Void, Void> {
 
-        protected void done() {            
-            try {
-                get();
-                
-            } catch (InterruptedException ex) {
-                Logger.getLogger(MantencionesGUI.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExecutionException ex) {
-                Logger.getLogger(MantencionesGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(null, "Su mensaje ha sido enviado");
+		@Override
+		protected Void doInBackground() throws Exception {
+			new BLL.Correos().envioCorreosAviso(equipos);
+			return null;
+		}
 
-           modalDialog.setVisible(false);
-           modalDialog.dispose();
-           
+		@Override
+		protected void done() {
+			try {
+				get();
 
-        }
-    }
-    private String equipos;
-    /**
-     * Creates new form prueba
-     */
-    public TrozadoIluminariasImagen(BLL.Usuarios user,javax.swing.JPanel jp) {
-        
-        initComponents();
-        this.jp = jp;
-        this.user = user;
-       this.colorBotones(new Manteciones().listC());
-      
-       this.jBPrueba1.setEnabled(false);
-       this.jBPrueba1.setVisible(false);
-    }
+			} catch (InterruptedException | ExecutionException ex) {
+				Logger.getLogger(MantencionesGUI.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			JOptionPane.showMessageDialog(null, "Su mensaje ha sido enviado");
 
-    public TrozadoIluminariasImagen() {
-        initComponents();
-    }
-            
-     private void initButton(JButton jb){
-     jb.setBorder(new LineBorder(this.colorear(jb.getName())));
-     }
-    
-    
-    public Color colorear(String equipo){
-        return new Manteciones(equipo).colorear();
-    }
-    
-    public void colorBotones(ArrayList s){
-        this.jb = this.listaBotones();
-        ArrayList <String> ss = s;
-             
-        for (JButton x :this.jb) {
-             x.setBorder(new LineBorder(Color.GREEN));
-            for(String d : ss)       {          
+			modalDialog.setVisible(false);
+			modalDialog.dispose();
+		}
+	}
+	private String equipos;
 
-            try{
-       
-        if(x.getName().equalsIgnoreCase(d)){
-            x.setBorder(new LineBorder(Color.RED));
-        
-          break;
-        }
-        }
-        catch(Exception ex){
-       
-                }
-        
-        }
-    this.updateUI();
-        this.repaint(); 
-    }
-       
-    }
-       
-        
-    
-    
+	/**
+	 * Creates new form prueba
+	 */
+	public TrozadoIluminariasImagen(javax.swing.JPanel jp) {
 
-    public void aviso(ArrayList s){
-       ArrayList <String> ss = s;
-       Date date = new Date();
-       this.equipos = "equipos: ";
-       for(String d : ss){          
-        for (JButton x :this.jb) {
-        try{
-       
-        if(x.getName().equalsIgnoreCase(d))
-               
-        {
-            x.setBorder(new LineBorder(Color.RED));
-          new Manteciones().Manteciones(d, "Equipo sin revisión por mucho tiempo"
-                    ,date,"bkb" ,"Sitema","5056" ,"sistema@sistema.com ");
-          equipos = equipos + "\n" + d; 
-          break;
-        }
-        }
-        
-        catch(Exception ex){
-       
-                }
-        
-        }
-        
-    }
-       
-        this.updateUI();
-        this.repaint();
-        modalDialog = new VentanaLoading(null,false);
-             modalDialog.pack();           
-             modalDialog.setSize(200, 150);
-                    modalDialog.setLocationRelativeTo(null);
-                    
-                    modalDialog.setVisible(true);
-             
-           
-                
-            WorkerCorreoAv w = new WorkerCorreoAv();
-            w.execute();
-        
-    }   
-       public ArrayList listaBotones(){
-            ArrayList<JButton> jb = new ArrayList();
-            jb.add(q1);
-            jb.add(q2);
-            jb.add(q3);
-            jb.add(q4);
-            jb.add(q5);
-            
-            jb.add(q6);
-            jb.add(q7);
-            jb.add(q8);
-            jb.add(q9);
-            jb.add(q10);
-            
-            jb.add(q11);
-            jb.add(q12);
-            jb.add(q13);
-            jb.add(q14);
-            jb.add(q15);
-            
-            jb.add(q16);
-            jb.add(q17);
-            jb.add(q18);
-            jb.add(q19);
-            jb.add(q20);
-            
-            jb.add(q21);
-            jb.add(q22);
-            
-            jb.add(q24);
-            
-            
-            jb.add(q26);
-            jb.add(q27);
-            jb.add(q28);
-            jb.add(q29);
-            jb.add(q30);
-            
-            jb.add(q31);
-            jb.add(q32);
-            jb.add(q33);
-            jb.add(q34);
-            jb.add(q35);
-            
-            jb.add(q36);
-            jb.add(q37);
-            jb.add(q38);
-            jb.add(q39);
-            jb.add(q40);
-            
-            jb.add(q41);
-            jb.add(q42);
-            jb.add(q43);
-            jb.add(q44);
-            jb.add(q45);
-            
-            jb.add(q46);
-            jb.add(q47);
-            jb.add(q48);
-            jb.add(q49);
-            jb.add(q50);
-            
-            jb.add(q51);
-            jb.add(q52);
-            jb.add(q53);
-            jb.add(q54);
-            jb.add(q55);
-            
-            jb.add(q56);
-            jb.add(q57);
-            jb.add(q58);
-            jb.add(q59);
-            jb.add(q60);
-            
-            jb.add(q61);
-            jb.add(q62);
-            jb.add(q63);
-            jb.add(q64);
-            jb.add(q65);
-            
-            jb.add(q66);
-            jb.add(q67);
-            jb.add(q68);
-          
-            jb.add(q70);
-            
-            jb.add(q71);
-            jb.add(q72);
-            
-            jb.add(q74);
-            jb.add(q75);
-            
-            jb.add(q76);
-            jb.add(q77);
-            jb.add(q78);
-            jb.add(q79);
-            jb.add(q80);
-            
-            jb.add(q81);
-            jb.add(q82);
-            jb.add(q83);
-            jb.add(q84);
-            jb.add(q85);
-            
-            jb.add(q86);
-            
-           
-           
-            jb.add(q90);
-            
-            jb.add(q91);
-            jb.add(q92);
-            jb.add(q93);
-            jb.add(q94);
-            jb.add(q95);
-            
-           
-           
-            jb.add(q98);
-            jb.add(q99);
-           
-            
-            jb.add(q101);
-            jb.add(q102);
-            jb.add(q103);
-            jb.add(q104);
-            jb.add(q105);
-            
-            jb.add(q106);
-            jb.add(q107);
-            jb.add(q108);
-            jb.add(q109);
-            jb.add(q110);
-            
-            jb.add(q111);
-            jb.add(q112);
-            jb.add(q113);
-            jb.add(q114);
-            jb.add(q115);
-            
-            jb.add(q116);
-            jb.add(q117);
-            jb.add(q118);
-            jb.add(q119);
-            jb.add(q120);
-            
-            jb.add(q121);
-            jb.add(q122);
-            jb.add(q123);
-            jb.add(q124);
-            jb.add(q125);
-            
-            jb.add(q126);
-            jb.add(q127);
-            jb.add(q128);
-            jb.add(q129);
-            jb.add(q130);
-            
-            jb.add(q131);
-            jb.add(q132);
-            jb.add(q133);
-            jb.add(q134);
-            jb.add(q135);
-            
-            jb.add(q136);
-            jb.add(q137);
-            jb.add(q138);
-            jb.add(q139);
-            jb.add(q140);
-            
-            jb.add(q141);
-            jb.add(q142);
-            jb.add(q143);
-            jb.add(q144);
-            jb.add(q145);
-            
-            jb.add(q146);
-            jb.add(q147);
-            
-            
-        return jb;
-        }
-    
-    public void botones(){
-        this.initButton(this.q1);
-        this.initButton(this.q2);
-        this.initButton(this.q3);
-    this.initButton(this.q4);
-    this.initButton(this.q5);
-    this.initButton(this.q6);
-    this.initButton(this.q7);
-    this.initButton(this.q8);
-    this.initButton(this.q9);
-    this.initButton(this.q10);
-        this.initButton(this.q11);
-        this.initButton(this.q12);
-        this.initButton(this.q13);
-    this.initButton(this.q14);
-    this.initButton(this.q15);
-    this.initButton(this.q16);
-    this.initButton(this.q17);
-    this.initButton(this.q18);
-    this.initButton(this.q19);
-    this.initButton(this.q20);
-    
-    this.initButton(this.q21);
-        this.initButton(this.q22);
-        this.initButton(this.q24);
-        this.initButton(this.q26);
-    this.initButton(this.q27);
-    this.initButton(this.q28);
-    this.initButton(this.q29);
-    this.initButton(this.q30);
-    this.initButton(this.q31);
-    this.initButton(this.q32);
-    this.initButton(this.q33);
-    
-    this.initButton(this.q34);
-    this.initButton(this.q35);
-    this.initButton(this.q36);
-    this.initButton(this.q37);
-    this.initButton(this.q38);
-    this.initButton(this.q39);
-    this.initButton(this.q40);
-    this.initButton(this.q41);
-    this.initButton(this.q42);
-    this.initButton(this.q43);
-    this.initButton(this.q44);
-    
-    this.initButton(this.q45);
-    this.initButton(this.q46);
-    this.initButton(this.q47);
-    this.initButton(this.q48);
-    this.initButton(this.q49);
-    this.initButton(this.q50);
-    this.initButton(this.q51);
-    this.initButton(this.q52);
-    this.initButton(this.q53);
-    this.initButton(this.q54);
-    this.initButton(this.q55);
-    this.initButton(this.q56);
-    this.initButton(this.q57);
-    this.initButton(this.q58);
-    this.initButton(this.q59);
-    this.initButton(this.q60);
-    this.initButton(this.q61);
-    this.initButton(this.q62);
-    this.initButton(this.q63);
-    this.initButton(this.q64);
-    this.initButton(this.q65);
-    this.initButton(this.q66);
-    this.initButton(this.q67);
-    this.initButton(this.q68);
-    this.initButton(this.q70);
-    this.initButton(this.q71);
-    this.initButton(this.q72);
-    this.initButton(this.q74);
-    this.initButton(this.q75);
-    this.initButton(this.q76);
-    this.initButton(this.q77);
-    this.initButton(this.q78);
-    this.initButton(this.q79);
-    this.initButton(this.q80);
-    this.initButton(this.q81);
-    this.initButton(this.q82);
-    this.initButton(this.q83);
-    this.initButton(this.q84);
-    this.initButton(this.q85);
-    this.initButton(this.q86);
-      this.initButton(this.q90);
-    this.initButton(this.q91);
-    this.initButton(this.q92);
-    this.initButton(this.q93);
-    this.initButton(this.q94);  
-    this.initButton(this.q95);  
-     this.initButton(this.q98);  
-    this.initButton(this.q99); 
-    this.initButton(this.q101);
-    this.initButton(this.q102);
-    this.initButton(this.q103);
-    this.initButton(this.q104);
-    this.initButton(this.q105);
-    this.initButton(this.q106);
-    this.initButton(this.q107);
-    this.initButton(this.q108);
-    this.initButton(this.q109);
-    this.initButton(this.q110);
-    this.initButton(this.q111);
-    this.initButton(this.q112);
-      this.initButton(this.q113);
-    this.initButton(this.q114);
-    this.initButton(this.q115);
-    this.initButton(this.q116);
-    this.initButton(this.q117);  
-    this.initButton(this.q118);  
-     this.initButton(this.q119);  
-    this.initButton(this.q120); 
-       this.initButton(this.q121);
-    this.initButton(this.q122);
-    this.initButton(this.q123);
-    this.initButton(this.q124);
-    this.initButton(this.q125);
-    this.initButton(this.q126);
-    this.initButton(this.q127);
-    this.initButton(this.q128);
-    this.initButton(this.q129);
-    this.initButton(this.q130);
-    this.initButton(this.q131);
-      this.initButton(this.q132);
-    this.initButton(this.q133);
-    this.initButton(this.q134);
-    this.initButton(this.q135);
-    this.initButton(this.q136);  
-    this.initButton(this.q137);  
-     this.initButton(this.q138);  
-    this.initButton(this.q139); 
-     this.initButton(this.q140);
-    this.initButton(this.q141);
-    this.initButton(this.q144);  
-    this.initButton(this.q145);  
-     this.initButton(this.q146);  
-    this.initButton(this.q147); 
-     this.initButton(this.q142);  
-    this.initButton(this.q143); 
-    
-    }
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
+		initComponents();
+		this.jp = jp;
+		this.user = Main.Main.user;
+		this.colorBotones(new Manteciones().listC());
+
+		this.jBPrueba1.setEnabled(false);
+		this.jBPrueba1.setVisible(false);
+	}
+
+	public TrozadoIluminariasImagen() {
+		initComponents();
+	}
+
+	private void initButton(JButton jb) {
+		jb.setBorder(new LineBorder(this.colorear(jb.getName())));
+	}
+
+	public Color colorear(String equipo) {
+		return new Manteciones(equipo).colorear();
+	}
+
+	public void colorBotones(ArrayList s) {
+		this.jb = this.listaBotones();
+		ArrayList<String> ss = s;
+
+		for (JButton x : this.jb) {
+			x.setBorder(new LineBorder(Color.GREEN));
+			for (String d : ss) {
+
+				try {
+
+					if (x.getName().equalsIgnoreCase(d)) {
+						x.setBorder(new LineBorder(Color.RED));
+
+						break;
+					}
+				} catch (Exception ex) {
+
+				}
+
+			}
+			this.updateUI();
+			this.repaint();
+		}
+
+	}
+
+	public void aviso(ArrayList s) {
+		ArrayList<String> ss = s;
+		Date date = new Date();
+		this.equipos = "equipos: ";
+		for (String d : ss) {
+			for (JButton x : this.jb) {
+				try {
+
+					if (x.getName().equalsIgnoreCase(d)) {
+						x.setBorder(new LineBorder(Color.RED));
+						new Manteciones().Manteciones(
+								d,
+								"Equipo sin revisión por mucho tiempo",
+								date,
+								"bkb",
+								"Sitema",
+								"5056",
+								"sistema@sistema.com ");
+						equipos = equipos + "\n" + d;
+						break;
+					}
+				} catch (Exception ex) {
+
+				}
+
+			}
+
+		}
+
+		this.updateUI();
+		this.repaint();
+		modalDialog = new VentanaLoading(null, false);
+		modalDialog.pack();
+		modalDialog.setSize(200, 150);
+		modalDialog.setLocationRelativeTo(null);
+
+		modalDialog.setVisible(true);
+
+		WorkerCorreoAv w = new WorkerCorreoAv();
+		w.execute();
+
+	}
+
+	public ArrayList listaBotones() {
+		ArrayList<JButton> jb = new ArrayList();
+		jb.add(q1);
+		jb.add(q2);
+		jb.add(q3);
+		jb.add(q4);
+		jb.add(q5);
+
+		jb.add(q6);
+		jb.add(q7);
+		jb.add(q8);
+		jb.add(q9);
+		jb.add(q10);
+
+		jb.add(q11);
+		jb.add(q12);
+		jb.add(q13);
+		jb.add(q14);
+		jb.add(q15);
+
+		jb.add(q16);
+		jb.add(q17);
+		jb.add(q18);
+		jb.add(q19);
+		jb.add(q20);
+
+		jb.add(q21);
+		jb.add(q22);
+
+		jb.add(q24);
+
+		jb.add(q26);
+		jb.add(q27);
+		jb.add(q28);
+		jb.add(q29);
+		jb.add(q30);
+
+		jb.add(q31);
+		jb.add(q32);
+		jb.add(q33);
+		jb.add(q34);
+		jb.add(q35);
+
+		jb.add(q36);
+		jb.add(q37);
+		jb.add(q38);
+		jb.add(q39);
+		jb.add(q40);
+
+		jb.add(q41);
+		jb.add(q42);
+		jb.add(q43);
+		jb.add(q44);
+		jb.add(q45);
+
+		jb.add(q46);
+		jb.add(q47);
+		jb.add(q48);
+		jb.add(q49);
+		jb.add(q50);
+
+		jb.add(q51);
+		jb.add(q52);
+		jb.add(q53);
+		jb.add(q54);
+		jb.add(q55);
+
+		jb.add(q56);
+		jb.add(q57);
+		jb.add(q58);
+		jb.add(q59);
+		jb.add(q60);
+
+		jb.add(q61);
+		jb.add(q62);
+		jb.add(q63);
+		jb.add(q64);
+		jb.add(q65);
+
+		jb.add(q66);
+		jb.add(q67);
+		jb.add(q68);
+
+		jb.add(q70);
+
+		jb.add(q71);
+		jb.add(q72);
+
+		jb.add(q74);
+		jb.add(q75);
+
+		jb.add(q76);
+		jb.add(q77);
+		jb.add(q78);
+		jb.add(q79);
+		jb.add(q80);
+
+		jb.add(q81);
+		jb.add(q82);
+		jb.add(q83);
+		jb.add(q84);
+		jb.add(q85);
+
+		jb.add(q86);
+
+		jb.add(q90);
+
+		jb.add(q91);
+		jb.add(q92);
+		jb.add(q93);
+		jb.add(q94);
+		jb.add(q95);
+
+		jb.add(q98);
+		jb.add(q99);
+
+		jb.add(q101);
+		jb.add(q102);
+		jb.add(q103);
+		jb.add(q104);
+		jb.add(q105);
+
+		jb.add(q106);
+		jb.add(q107);
+		jb.add(q108);
+		jb.add(q109);
+		jb.add(q110);
+
+		jb.add(q111);
+		jb.add(q112);
+		jb.add(q113);
+		jb.add(q114);
+		jb.add(q115);
+
+		jb.add(q116);
+		jb.add(q117);
+		jb.add(q118);
+		jb.add(q119);
+		jb.add(q120);
+
+		jb.add(q121);
+		jb.add(q122);
+		jb.add(q123);
+		jb.add(q124);
+		jb.add(q125);
+
+		jb.add(q126);
+		jb.add(q127);
+		jb.add(q128);
+		jb.add(q129);
+		jb.add(q130);
+
+		jb.add(q131);
+		jb.add(q132);
+		jb.add(q133);
+		jb.add(q134);
+		jb.add(q135);
+
+		jb.add(q136);
+		jb.add(q137);
+		jb.add(q138);
+		jb.add(q139);
+		jb.add(q140);
+
+		jb.add(q141);
+		jb.add(q142);
+		jb.add(q143);
+		jb.add(q144);
+		jb.add(q145);
+
+		jb.add(q146);
+		jb.add(q147);
+
+		return jb;
+	}
+
+	public void botones() {
+		this.initButton(this.q1);
+		this.initButton(this.q2);
+		this.initButton(this.q3);
+		this.initButton(this.q4);
+		this.initButton(this.q5);
+		this.initButton(this.q6);
+		this.initButton(this.q7);
+		this.initButton(this.q8);
+		this.initButton(this.q9);
+		this.initButton(this.q10);
+		this.initButton(this.q11);
+		this.initButton(this.q12);
+		this.initButton(this.q13);
+		this.initButton(this.q14);
+		this.initButton(this.q15);
+		this.initButton(this.q16);
+		this.initButton(this.q17);
+		this.initButton(this.q18);
+		this.initButton(this.q19);
+		this.initButton(this.q20);
+
+		this.initButton(this.q21);
+		this.initButton(this.q22);
+		this.initButton(this.q24);
+		this.initButton(this.q26);
+		this.initButton(this.q27);
+		this.initButton(this.q28);
+		this.initButton(this.q29);
+		this.initButton(this.q30);
+		this.initButton(this.q31);
+		this.initButton(this.q32);
+		this.initButton(this.q33);
+
+		this.initButton(this.q34);
+		this.initButton(this.q35);
+		this.initButton(this.q36);
+		this.initButton(this.q37);
+		this.initButton(this.q38);
+		this.initButton(this.q39);
+		this.initButton(this.q40);
+		this.initButton(this.q41);
+		this.initButton(this.q42);
+		this.initButton(this.q43);
+		this.initButton(this.q44);
+
+		this.initButton(this.q45);
+		this.initButton(this.q46);
+		this.initButton(this.q47);
+		this.initButton(this.q48);
+		this.initButton(this.q49);
+		this.initButton(this.q50);
+		this.initButton(this.q51);
+		this.initButton(this.q52);
+		this.initButton(this.q53);
+		this.initButton(this.q54);
+		this.initButton(this.q55);
+		this.initButton(this.q56);
+		this.initButton(this.q57);
+		this.initButton(this.q58);
+		this.initButton(this.q59);
+		this.initButton(this.q60);
+		this.initButton(this.q61);
+		this.initButton(this.q62);
+		this.initButton(this.q63);
+		this.initButton(this.q64);
+		this.initButton(this.q65);
+		this.initButton(this.q66);
+		this.initButton(this.q67);
+		this.initButton(this.q68);
+		this.initButton(this.q70);
+		this.initButton(this.q71);
+		this.initButton(this.q72);
+		this.initButton(this.q74);
+		this.initButton(this.q75);
+		this.initButton(this.q76);
+		this.initButton(this.q77);
+		this.initButton(this.q78);
+		this.initButton(this.q79);
+		this.initButton(this.q80);
+		this.initButton(this.q81);
+		this.initButton(this.q82);
+		this.initButton(this.q83);
+		this.initButton(this.q84);
+		this.initButton(this.q85);
+		this.initButton(this.q86);
+		this.initButton(this.q90);
+		this.initButton(this.q91);
+		this.initButton(this.q92);
+		this.initButton(this.q93);
+		this.initButton(this.q94);
+		this.initButton(this.q95);
+		this.initButton(this.q98);
+		this.initButton(this.q99);
+		this.initButton(this.q101);
+		this.initButton(this.q102);
+		this.initButton(this.q103);
+		this.initButton(this.q104);
+		this.initButton(this.q105);
+		this.initButton(this.q106);
+		this.initButton(this.q107);
+		this.initButton(this.q108);
+		this.initButton(this.q109);
+		this.initButton(this.q110);
+		this.initButton(this.q111);
+		this.initButton(this.q112);
+		this.initButton(this.q113);
+		this.initButton(this.q114);
+		this.initButton(this.q115);
+		this.initButton(this.q116);
+		this.initButton(this.q117);
+		this.initButton(this.q118);
+		this.initButton(this.q119);
+		this.initButton(this.q120);
+		this.initButton(this.q121);
+		this.initButton(this.q122);
+		this.initButton(this.q123);
+		this.initButton(this.q124);
+		this.initButton(this.q125);
+		this.initButton(this.q126);
+		this.initButton(this.q127);
+		this.initButton(this.q128);
+		this.initButton(this.q129);
+		this.initButton(this.q130);
+		this.initButton(this.q131);
+		this.initButton(this.q132);
+		this.initButton(this.q133);
+		this.initButton(this.q134);
+		this.initButton(this.q135);
+		this.initButton(this.q136);
+		this.initButton(this.q137);
+		this.initButton(this.q138);
+		this.initButton(this.q139);
+		this.initButton(this.q140);
+		this.initButton(this.q141);
+		this.initButton(this.q144);
+		this.initButton(this.q145);
+		this.initButton(this.q146);
+		this.initButton(this.q147);
+		this.initButton(this.q142);
+		this.initButton(this.q143);
+
+	}
+
+	/**
+	 * This method is called from within the constructor to initialize the form.
+	 * WARNING: Do NOT modify this code. The content of this method is always
+	 * regenerated by the Form Editor.
+	 */
+	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
@@ -2593,703 +2574,564 @@ private class WorkerCorreoAv extends SwingWorker<Void, Void> {
     }// </editor-fold>//GEN-END:initComponents
 
     private void q123ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q123ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q123.getText(), this.user, this.jp).setVisible(true);
+		new MantOrAskGUI(this.q123.getText(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q123ActionPerformed
 
     private void q122ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q122ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q122.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q122.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q122ActionPerformed
 
     private void q125ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q125ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q125.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q125.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q125ActionPerformed
 
     private void q124ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q124ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q124.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q124.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q124ActionPerformed
 
     private void q126ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q126ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q126.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q126.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q126ActionPerformed
 
     private void q127ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q127ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q127.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q127.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q127ActionPerformed
 
     private void q128ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q128ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q128.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q128.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q128ActionPerformed
 
     private void q129ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q129ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q129.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q129.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q129ActionPerformed
 
     private void q130ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q130ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q130.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q130.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q130ActionPerformed
 
     private void q131ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q131ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q131.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q131.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q131ActionPerformed
 
     private void q132ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q132ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q132.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q132.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q132ActionPerformed
 
     private void q133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q133ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q133.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q133.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q133ActionPerformed
 
     private void q134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q134ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q134.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q134.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q134ActionPerformed
 
     private void q135ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q135ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q135.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q135.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q135ActionPerformed
 
     private void q136ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q136ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q136.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q136.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q136ActionPerformed
 
     private void q137ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q137ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q137.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q137.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q137ActionPerformed
 
     private void q138ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q138ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q138.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q138.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q138ActionPerformed
 
     private void q121ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q121ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q121.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q121.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q121ActionPerformed
 
     private void q101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q101ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q101.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q101.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q101ActionPerformed
 
     private void q102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q102ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q102.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q102.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q102ActionPerformed
 
     private void q103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q103ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q103.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q103.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q103ActionPerformed
 
     private void q104ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q104ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q104.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q104.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q104ActionPerformed
 
     private void q105ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q105ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q105.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q105.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q105ActionPerformed
 
     private void q106ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q106ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q106.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q106.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q106ActionPerformed
 
     private void q107ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q107ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q107.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q107.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q107ActionPerformed
 
     private void q108ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q108ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q108.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q108.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q108ActionPerformed
 
     private void q109ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q109ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q109.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q109.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q109ActionPerformed
 
     private void q110ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q110ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q110.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q110.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q110ActionPerformed
 
     private void q111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q111ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q111.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q111.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q111ActionPerformed
 
     private void q112ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q112ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q112.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q112.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q112ActionPerformed
 
     private void q113ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q113ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q113.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q113.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q113ActionPerformed
 
     private void q114ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q114ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q114.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q114.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q114ActionPerformed
 
     private void q115ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q115ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q115.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q115.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q115ActionPerformed
 
     private void q116ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q116ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q116.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q116.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q116ActionPerformed
 
     private void q117ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q117ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q117.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q117.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q117ActionPerformed
 
     private void q118ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q118ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q118.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q118.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q118ActionPerformed
 
     private void q119ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q119ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q119.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q119.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q119ActionPerformed
 
     private void q120ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q120ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q120.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q120.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q120ActionPerformed
 
     private void q90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q90ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q90.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q90.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q90ActionPerformed
 
     private void q91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q91ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q91.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q91.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q91ActionPerformed
 
     private void q92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q92ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q92.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q92.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q92ActionPerformed
 
     private void q93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q93ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q93.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q93.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q93ActionPerformed
 
     private void q94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q94ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q94.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q94.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q94ActionPerformed
 
     private void q95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q95ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q95.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q95.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q95ActionPerformed
 
     private void q98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q98ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q98.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q98.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q98ActionPerformed
 
     private void q99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q99ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q99.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q99.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q99ActionPerformed
 
     private void q80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q80ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q80.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q80.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q80ActionPerformed
 
     private void q81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q81ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q81.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q81.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q81ActionPerformed
 
     private void q82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q82ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q82.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q82.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q82ActionPerformed
 
     private void q83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q83ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q83.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q83.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q83ActionPerformed
 
     private void q84ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q84ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q84.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q84.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q84ActionPerformed
 
     private void q85ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q85ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q85.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q85.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q85ActionPerformed
 
     private void q86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q86ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q86.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q86.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q86ActionPerformed
 
     private void q70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q70ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q70.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q70.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q70ActionPerformed
 
     private void q71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q71ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q71.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q71.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q71ActionPerformed
 
     private void q72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q72ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q72.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q72.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q72ActionPerformed
 
     private void q74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q74ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q74.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q74.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q74ActionPerformed
 
     private void q75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q75ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q75.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q75.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q75ActionPerformed
 
     private void q76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q76ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q76.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q76.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q76ActionPerformed
 
     private void q77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q77ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q77.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q77.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q77ActionPerformed
 
     private void q78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q78ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q78.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q78.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q78ActionPerformed
 
     private void q79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q79ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q79.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q79.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q79ActionPerformed
 
     private void q60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q60ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q60.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q60.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q60ActionPerformed
 
     private void q61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q61ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q61.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q61.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q61ActionPerformed
 
     private void q62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q62ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q62.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q62.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q62ActionPerformed
 
     private void q63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q63ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q63.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q63.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q63ActionPerformed
 
     private void q64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q64ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q64.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q64.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q64ActionPerformed
 
     private void q65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q65ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q65.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q65.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q65ActionPerformed
 
     private void q66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q66ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q66.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q66.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q66ActionPerformed
 
     private void q67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q67ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q67.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q67.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q67ActionPerformed
 
     private void q68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q68ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q68.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q68.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q68ActionPerformed
 
     private void q59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q59ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q59.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q59.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q59ActionPerformed
 
     private void q50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q50ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q50.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q50.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q50ActionPerformed
 
     private void q51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q51ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q51.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q51.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q51ActionPerformed
 
     private void q52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q52ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q52.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q52.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q52ActionPerformed
 
     private void q53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q53ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q53.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q53.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q53ActionPerformed
 
     private void q54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q54ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q54.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q54.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q54ActionPerformed
 
     private void q55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q55ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q55.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q55.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q55ActionPerformed
 
     private void q56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q56ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q56.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q56.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q56ActionPerformed
 
     private void q57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q57ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q57.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q57.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q57ActionPerformed
 
     private void q58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q58ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q58.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q58.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q58ActionPerformed
 
     private void q40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q40ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q40.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q40.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q40ActionPerformed
 
     private void q41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q41ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q41.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q41.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q41ActionPerformed
 
     private void q42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q42ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q42.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q42.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q42ActionPerformed
 
     private void q43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q43ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q43.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q43.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q43ActionPerformed
 
     private void q44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q44ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q44.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q44.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q44ActionPerformed
 
     private void q45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q45ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q45.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q45.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q45ActionPerformed
 
     private void q46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q46ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q46.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q46.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q46ActionPerformed
 
     private void q47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q47ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q47.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q47.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q47ActionPerformed
 
     private void q48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q48ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q48.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q48.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q48ActionPerformed
 
     private void q49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q49ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q49.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q49.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q49ActionPerformed
 
     private void q30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q30ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q30.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q30.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q30ActionPerformed
 
     private void q31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q31ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q31.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q31.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q31ActionPerformed
 
     private void q32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q32ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q32.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q32.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q32ActionPerformed
 
     private void q33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q33ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q33.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q33.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q33ActionPerformed
 
     private void q34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q34ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q34.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q34.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q34ActionPerformed
 
     private void q35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q35ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q35.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q35.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q35ActionPerformed
 
     private void q36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q36ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q36.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q36.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q36ActionPerformed
 
     private void q37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q37ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q37.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q37.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q37ActionPerformed
 
     private void q38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q38ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q38.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q38.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q38ActionPerformed
 
     private void q39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q39ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q39.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q39.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q39ActionPerformed
 
     private void q20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q20ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q20.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q20.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q20ActionPerformed
 
     private void q21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q21ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q21.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q21.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q21ActionPerformed
 
     private void q22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q22ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q22.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q22.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q22ActionPerformed
 
     private void q26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q26ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q26.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q26.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q26ActionPerformed
 
     private void q24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q24ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q24.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q24.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q24ActionPerformed
 
     private void q27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q27ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q27.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q27.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q27ActionPerformed
 
     private void q28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q28ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q28.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q28.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q28ActionPerformed
 
     private void q29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q29ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q29.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q29.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q29ActionPerformed
 
     private void q10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q10ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q10.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q10.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q10ActionPerformed
 
     private void q11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q11ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q11.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q11.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q11ActionPerformed
 
     private void q12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q12ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q12.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q12.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q12ActionPerformed
 
     private void q13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q13ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q13.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q13.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q13ActionPerformed
 
     private void q14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q14ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q14.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q14.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q14ActionPerformed
 
     private void q15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q15ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q15.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q15.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q15ActionPerformed
 
     private void q16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q16ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q16.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q16.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q16ActionPerformed
 
     private void q17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q17ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q17.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q17.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q17ActionPerformed
 
     private void q18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q18ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q18.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q18.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q18ActionPerformed
 
     private void q19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q19ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q19.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q19.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q19ActionPerformed
 
     private void q1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q1ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q1.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q1.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q1ActionPerformed
 
     private void q2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q2ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q2.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q2.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q2ActionPerformed
 
     private void q3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q3ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q3.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q3.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q3ActionPerformed
 
     private void q4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q4ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q4.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q4.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q4ActionPerformed
 
     private void q5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q5ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q5.getName(), this.user,this).setVisible(true);
+		new MantOrAskGUI(this.q5.getName(), this.user, this).setVisible(true);
     }//GEN-LAST:event_q5ActionPerformed
 
     private void q6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q6ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q6.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q6.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q6ActionPerformed
 
     private void q7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q7ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q7.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q7.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q7ActionPerformed
 
     private void q8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q8ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q8.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q8.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q8ActionPerformed
 
     private void q9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q9ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q9.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q9.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q9ActionPerformed
 
     private void q139ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q139ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q139.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q139.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q139ActionPerformed
 
     private void q140ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q140ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q140.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q140.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q140ActionPerformed
 
     private void q141ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q141ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q141.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q141.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q141ActionPerformed
 
     private void q146ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q146ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q146.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q146.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q146ActionPerformed
 
     private void q147ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q147ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q147.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q147.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q147ActionPerformed
 
     private void q145ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q145ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q145.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q145.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q145ActionPerformed
 
     private void q144ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q144ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q144.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q144.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q144ActionPerformed
 
     private void q142ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q142ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q142.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q142.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q142ActionPerformed
 
     private void q143ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q143ActionPerformed
-        // TODO add your handling code here:
-        new MantOrAskGUI(this.q143.getName(), this.user,this.jp).setVisible(true);
+		new MantOrAskGUI(this.q143.getName(), this.user, this.jp).setVisible(true);
     }//GEN-LAST:event_q143ActionPerformed
 
     private void jBPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPruebaActionPerformed
-        // TODO add your handling code here:
-        
-        this.jBPrueba1.setEnabled(true);
-        this.jBPrueba1.setVisible(true);
-        
+
+		this.jBPrueba1.setEnabled(true);
+		this.jBPrueba1.setVisible(true);
+
     }//GEN-LAST:event_jBPruebaActionPerformed
 
     private void jBPrueba1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPrueba1ActionPerformed
-        // TODO add your handling code here:
-       
-        this.aviso(new BLL.Equipos().busquedaEquipos(jb));
-        
+
+		this.aviso(new BLL.Equipos().busquedaEquipos(jb));
+
     }//GEN-LAST:event_jBPrueba1ActionPerformed
 
 

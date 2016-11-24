@@ -18,9 +18,9 @@ public class EmpaqueIluminariasGui extends javax.swing.JPanel {
      * Creates new form TrozadoGUI
      */
     private BLL.Usuarios user;
-    public EmpaqueIluminariasGui(BLL.Usuarios user) {
+    public EmpaqueIluminariasGui() {
         initComponents();
-        this.user = user;
+        this.user = Main.Main.user;
         this.colores();
     }
        public void colores(){

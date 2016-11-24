@@ -18,9 +18,9 @@ public class ProcesosPosterioresIluminariasGui extends javax.swing.JPanel {
      * Creates new form TrozadoGUI
      */
     private BLL.Usuarios user;
-    public ProcesosPosterioresIluminariasGui(BLL.Usuarios user) {
+    public ProcesosPosterioresIluminariasGui() {
         initComponents();
-        this.user = user;
+        this.user = Main.Main.user;
         this.colores();
     }
        public void colores(){
