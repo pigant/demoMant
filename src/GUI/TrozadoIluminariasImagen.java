@@ -34,7 +34,9 @@ public class TrozadoIluminariasImagen extends javax.swing.JPanel implements Acti
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new MantOrAskGUI(((javax.swing.JButton)e.getSource()).getName(), this.user, this.jp).setVisible(true);
+		MantOrAskGUI gui = new MantOrAskGUI(((javax.swing.JButton)e.getSource()).getName(), this.user, this.jp);
+		gui.setLocationRelativeTo(null);
+		gui.setVisible(true);
 	}
 
 	private class WorkerCorreoAv extends SwingWorker<Void, Void> {

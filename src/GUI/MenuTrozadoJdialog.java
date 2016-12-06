@@ -101,7 +101,6 @@ public class MenuTrozadoJdialog extends javax.swing.JDialog {
     private void iluminariaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iluminariaBtnActionPerformed
 		this.cambioVentana(new TrozadosIluminariasGui());
 		dispose();
-
     }//GEN-LAST:event_iluminariaBtnActionPerformed
 
     private void evaporadorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaporadorBtnActionPerformed

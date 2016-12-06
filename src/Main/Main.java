@@ -7,6 +7,9 @@ import GUI.ProcesosPosterioresIluminariasGui;
 import GUI.TrozadoEvaporadoresGui;
 import GUI.TrozadosIluminariasGui;
 import javax.swing.JOptionPane;
+import GUI.components.JPanelAnimated;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 
 /**
  *
@@ -16,6 +19,7 @@ public class Main extends javax.swing.JFrame {
 
 	public static Main instancia;
 	public static BLL.Usuarios user;
+	public JPanelAnimated panelContenedor;
     /**
      * Creates new form Main
      */
@@ -23,15 +27,11 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         user = new BLL.Usuarios();
         instancia = this;
+		panelContenedor = (JPanelAnimated) contenedorPanel;
     }
 	
     public void cambioVentana(javax.swing.JPanel jp){
-        jp.setPreferredSize(contenedorPanel.getSize());
-        this.contenedorPanel.removeAll();
-        this.contenedorPanel.add(jp);
-        this.contenedorPanel.updateUI();
-        this.contenedorPanel.repaint();
-        repaint();
+		panelContenedor.cambiarPanel(jp);
     }
     
     /**
@@ -44,7 +44,6 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        contenedorPanel = new javax.swing.JPanel();
         ingresoPanel = new javax.swing.JPanel();
         tituloPanel = new javax.swing.JPanel();
         tituloLbl = new javax.swing.JLabel();
@@ -55,6 +54,7 @@ public class Main extends javax.swing.JFrame {
         contrasenaLbl = new javax.swing.JLabel();
         contrasenaTxt = new javax.swing.JPasswordField();
         entrarBtn = new javax.swing.JButton();
+        contenedorPanel = new JPanelAnimated();
         jMenuBar1 = new javax.swing.JMenuBar();
         areaMenu = new javax.swing.JMenu();
         menuGeneralItem = new javax.swing.JMenuItem();
@@ -66,13 +66,6 @@ public class Main extends javax.swing.JFrame {
         empaque_evaporadoresItem = new javax.swing.JMenuItem();
         procesosPosterioresItem = new javax.swing.JMenu();
         procesosPosteriores_iluminariasItem = new javax.swing.JMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setExtendedState(MAXIMIZED_BOTH);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
-
-        contenedorPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        contenedorPanel.setLayout(new javax.swing.BoxLayout(contenedorPanel, javax.swing.BoxLayout.LINE_AXIS));
 
         ingresoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ingresoPanel.setLayout(new java.awt.GridBagLayout());
@@ -162,7 +155,35 @@ public class Main extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         ingresoPanel.add(formularioPanel, gridBagConstraints);
 
-        contenedorPanel.add(ingresoPanel);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(MAXIMIZED_BOTH);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        contenedorPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        /*
+
+        */
+
+        javax.swing.GroupLayout contenedorPanelLayout = new javax.swing.GroupLayout(contenedorPanel);
+        contenedorPanel.setLayout(contenedorPanelLayout);
+        contenedorPanelLayout.setHorizontalGroup(
+            contenedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        contenedorPanelLayout.setVerticalGroup(
+            contenedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         getContentPane().add(contenedorPanel);
 
@@ -276,6 +297,17 @@ public class Main extends javax.swing.JFrame {
 
     private void logoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoBtnActionPerformed
     }//GEN-LAST:event_logoBtnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		Rectangle bounds = env.getMaximumWindowBounds();
+		contenedorPanel.setBounds(bounds);
+		cambioVentana(ingresoPanel);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+		revalidate();
+    }//GEN-LAST:event_formComponentResized
 
     /**
      * @param args the command line arguments

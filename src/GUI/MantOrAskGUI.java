@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import java.awt.Image;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -20,31 +19,15 @@ public class MantOrAskGUI extends javax.swing.JFrame {
      * Creates new form MantOrAskGUI
      */
     
-     private String nombre; 
-     private BLL.Usuarios user;
-     private javax.swing.JPanel jp;
-     private EvaporadorCuatroGui ev;
+     private final String nombre; 
+     private final BLL.Usuarios user;
+     private final javax.swing.JPanel jp;
+
     public MantOrAskGUI(String nombre, BLL.Usuarios user, javax.swing.JPanel jp) {
-        
-        initComponents();
-        
-        this.setExtendedState(MAXIMIZED_VERT);
         this.nombre = nombre;
-        this.jLabelEquipo.setText(nombre);
-        this.jLabelEquipo1.setText(nombre);
-        this.jTextAreaInfo.setEditable(false);
-        Equipos es = new Equipos(this.jLabelEquipo1.getText());
-        this.jTextAreaInfo.setText(es.readInfo().get("informacion"));
-        
-        String path = es.readInfo().get("imagen");
-        URL url = this.getClass().getResource(path);
-        ImageIcon icon = new ImageIcon(url);
-        this.jLabel6.setIcon(icon);
-        this.user = user;
-        this.jLabelUser.setText(this.user.getNombre());
-        this.jRadioButton5.setVisible(user.isBkb());
-        this.jp = jp;
-        
+		this.user = user;
+		this.jp = jp;
+        initComponents();
     }
      
         
@@ -60,24 +43,23 @@ public class MantOrAskGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabelEquipo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabelUser = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        _tituloAccion = new javax.swing.JLabel();
+        _equipo = new javax.swing.JLabel();
+        equipoLbl = new javax.swing.JLabel();
+        _usuario = new javax.swing.JLabel();
+        usuarioLbl = new javax.swing.JLabel();
+        pedirMantencionRB = new javax.swing.JRadioButton();
+        reporteUltimaMantencionRB = new javax.swing.JRadioButton();
+        reporteUltimaSolicitudRB = new javax.swing.JRadioButton();
+        reporteEquipoFechaRB = new javax.swing.JRadioButton();
+        comentarUltimaRB = new javax.swing.JRadioButton();
+        _desde = new javax.swing.JLabel();
+        desdeDC = new com.toedter.calendar.JDateChooser();
+        _hasta = new javax.swing.JLabel();
+        hastaDC = new com.toedter.calendar.JDateChooser();
+        realizarUltimaMantencionRB = new javax.swing.JRadioButton();
+        solicitarBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabelNombreE = new javax.swing.JLabel();
         jLabelEquipo1 = new javax.swing.JLabel();
@@ -87,91 +69,84 @@ public class MantOrAskGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabelEquipo.setText("----");
+        _tituloAccion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        _tituloAccion.setForeground(new java.awt.Color(90, 105, 110));
+        _tituloAccion.setText("Seleccionar Acción");
+        _tituloAccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Seleccionar Acción");
-        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        _equipo.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        _equipo.setText("Equipo:");
 
-        jLabel3.setText("Equipo:");
+        equipoLbl.setText("----");
 
-        buttonGroup2.add(jRadioButton2);
-        jRadioButton2.setText("Pedir Mantención");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        _usuario.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        _usuario.setText("Usuario");
+
+        usuarioLbl.setText("----");
+
+        buttonGroup2.add(pedirMantencionRB);
+        pedirMantencionRB.setText("Pedir Mantención");
+        pedirMantencionRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                pedirMantencionRBActionPerformed(evt);
             }
         });
 
-        buttonGroup2.add(jRadioButton3);
-        jRadioButton3.setText("Reporte ultima Mantención del equipo");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(reporteUltimaMantencionRB);
+        reporteUltimaMantencionRB.setText("Reporte última Mantención del equipo");
+        reporteUltimaMantencionRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                reporteUltimaMantencionRBActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Enter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(reporteUltimaSolicitudRB);
+        reporteUltimaSolicitudRB.setText("Reporte última solicitud");
+        reporteUltimaSolicitudRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                reporteUltimaSolicitudRBActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Usuario");
-
-        jLabelUser.setText("----");
-
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("Reporte del equipo por fecha");
-        jRadioButton4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton4StateChanged(evt);
-            }
-        });
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(reporteEquipoFechaRB);
+        reporteEquipoFechaRB.setText("Reporte del equipo por fecha");
+        reporteEquipoFechaRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                reporteEquipoFechaRBActionPerformed(evt);
             }
         });
 
-        jDateChooser1.setEnabled(false);
+        buttonGroup2.add(comentarUltimaRB);
+        comentarUltimaRB.setText("Comentar la última solicitud");
 
-        jLabel1.setText("Desde");
+        _desde.setText("Desde");
 
-        jLabel5.setText("Hasta");
+        desdeDC.setEnabled(false);
 
-        jDateChooser2.setEnabled(false);
+        _hasta.setText("Hasta");
 
-        buttonGroup2.add(jRadioButton5);
-        jRadioButton5.setText("Realizar ultima mantención");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        hastaDC.setEnabled(false);
+
+        buttonGroup2.add(realizarUltimaMantencionRB);
+        realizarUltimaMantencionRB.setText("Realizar última mantención");
+        realizarUltimaMantencionRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                realizarUltimaMantencionRBActionPerformed(evt);
             }
         });
 
-        buttonGroup2.add(jRadioButton6);
-        jRadioButton6.setText("Reporte ultima solicitud");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        solicitarBtn.setText("Solicitar");
+        solicitarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup2.add(jRadioButton7);
-        jRadioButton7.setText("Comentar la ultima solicitud");
-        jRadioButton7.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton7StateChanged(evt);
-            }
-        });
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                solicitarBtnActionPerformed(evt);
             }
         });
 
@@ -180,85 +155,76 @@ public class MantOrAskGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 17, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(135, 135, 135))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(_hasta)
+                            .addComponent(_desde))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(desdeDC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hastaDC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(_tituloAccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(solicitarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton6)
-                            .addComponent(jRadioButton2)
+                            .addComponent(reporteEquipoFechaRB)
+                            .addComponent(reporteUltimaSolicitudRB)
+                            .addComponent(pedirMantencionRB)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(_equipo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelEquipo)
+                                .addComponent(equipoLbl)
                                 .addGap(78, 78, 78)
-                                .addComponent(jLabel4)
+                                .addComponent(_usuario)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabelUser))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(33, 33, 33))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(35, 35, 35)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton5))
-                        .addContainerGap(58, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(usuarioLbl))
+                            .addComponent(reporteUltimaMantencionRB)
+                            .addComponent(realizarUltimaMantencionRB)
+                            .addComponent(comentarUltimaRB))
+                        .addGap(0, 19, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addGap(32, 32, 32)
+                .addContainerGap()
+                .addComponent(_tituloAccion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabelEquipo)
-                    .addComponent(jLabelUser))
+                    .addComponent(_equipo)
+                    .addComponent(_usuario)
+                    .addComponent(equipoLbl)
+                    .addComponent(usuarioLbl))
                 .addGap(29, 29, 29)
-                .addComponent(jRadioButton2)
+                .addComponent(pedirMantencionRB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(reporteUltimaMantencionRB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton6)
+                .addComponent(reporteUltimaSolicitudRB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(reporteEquipoFechaRB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton7)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(comentarUltimaRB)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jRadioButton5)
+                    .addComponent(desdeDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(_desde))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hastaDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(_hasta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(realizarUltimaMantencionRB)
                 .addGap(39, 39, 39)
-                .addComponent(jButton1)
-                .addGap(38, 38, 38))
+                .addComponent(solicitarBtn)
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Seleccionar una accion", jPanel1);
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabelNombreE.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabelNombreE.setText("Equipo: ");
 
         jLabelEquipo1.setText("----");
@@ -277,81 +243,84 @@ public class MantOrAskGUI extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabelNombreE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelEquipo1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(jLabelEquipo1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombreE)
                     .addComponent(jLabelEquipo1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        jTabbedPane1.addTab("Información del equipo", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void solicitarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitarBtnActionPerformed
         // TODO add your handling code here:
         try{
-        if (this.jRadioButton2.isSelected()) {
+        if (this.pedirMantencionRB.isSelected()) {
             new MantencionesGUI(this.nombre,this.user, this.jp).setVisible(true);
             dispose();
         }
-        if (this.jRadioButton3.isSelected()) {
+        if (this.reporteUltimaMantencionRB.isSelected()) {
             new BLL.Reporte(this.nombre).ReporteU();
             dispose();
         }
-        if(this.jRadioButton6.isSelected()){
+        if(this.reporteUltimaSolicitudRB.isSelected()){
             new BLL.Reporte(this.nombre).Reporte();
         }
-        if(this.jRadioButton4.isSelected()){
-            System.out.println(jDateChooser1.getDate());
-            new BLL.Reporte(this.jDateChooser1.getDate(), 
-                    this.jDateChooser2.getDate(), nombre);
+        if(this.reporteEquipoFechaRB.isSelected()){
+            System.out.println(desdeDC.getDate());
+            new BLL.Reporte(this.desdeDC.getDate(), 
+                    this.hastaDC.getDate(), nombre);
             dispose();
         }
-        if(this.jRadioButton5.isSelected()){
+        if(this.realizarUltimaMantencionRB.isSelected()){
             new AccionesGUI(nombre, this.jp, this.user).setVisible(true);
             dispose();
         }
-        if(this.jRadioButton7.isSelected()){
+        if(this.comentarUltimaRB.isSelected()){
             new ModificarGUI(nombre, this.jp, this.user).setVisible(true);
             dispose();
         }
@@ -360,52 +329,53 @@ public class MantOrAskGUI extends javax.swing.JFrame {
             System.out.println(ex.getMessage());                   
         }
             
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_solicitarBtnActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void realizarUltimaMantencionRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarUltimaMantencionRBActionPerformed
         // TODO add your handling code here:
-        this.jDateChooser1.setEnabled(true);
-        this.jDateChooser2.setEnabled(true);
-    
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
-        this.jDateChooser1.setEnabled(false);
-        this.jDateChooser2.setEnabled(false);
+        this.desdeDC.setEnabled(false);
+        this.hastaDC.setEnabled(false);
         
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_realizarUltimaMantencionRBActionPerformed
 
-    private void jRadioButton4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton4StateChanged
+    private void reporteUltimaMantencionRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteUltimaMantencionRBActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jRadioButton4StateChanged
+        this.desdeDC.setEnabled(false);
+        this.hastaDC.setEnabled(false);
+    }//GEN-LAST:event_reporteUltimaMantencionRBActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void pedirMantencionRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedirMantencionRBActionPerformed
         // TODO add your handling code here:
-        this.jDateChooser1.setEnabled(false);
-        this.jDateChooser2.setEnabled(false);
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+        this.desdeDC.setEnabled(false);
+        this.hastaDC.setEnabled(false);
+    }//GEN-LAST:event_pedirMantencionRBActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void reporteUltimaSolicitudRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteUltimaSolicitudRBActionPerformed
         // TODO add your handling code here:
-        this.jDateChooser1.setEnabled(false);
-        this.jDateChooser2.setEnabled(false);
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+        this.desdeDC.setEnabled(false);
+        this.hastaDC.setEnabled(false);
+    }//GEN-LAST:event_reporteUltimaSolicitudRBActionPerformed
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
-        // TODO add your handling code here:
-        this.jDateChooser1.setEnabled(false);
-        this.jDateChooser2.setEnabled(false);
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Equipos es = new Equipos(nombre);
+        this.equipoLbl.setText(nombre);
+        this.jLabelEquipo1.setText(nombre);
+        this.jTextAreaInfo.setEditable(false);
+        this.jTextAreaInfo.setText(es.readInfo().get("informacion"));
+        String path = es.readInfo().get("imagen");
+        URL url = this.getClass().getResource(path);
+        ImageIcon icon = new ImageIcon(url);
+        this.jLabel6.setIcon(icon);
+        this.usuarioLbl.setText(this.user.getNombre());
+        this.realizarUltimaMantencionRB.setVisible(user.isBkb());
+    }//GEN-LAST:event_formWindowOpened
 
-    private void jRadioButton7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton7StateChanged
+    private void reporteEquipoFechaRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteEquipoFechaRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7StateChanged
+        this.desdeDC.setEnabled(true);
+        this.hastaDC.setEnabled(true);
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    }//GEN-LAST:event_reporteEquipoFechaRBActionPerformed
       
     
     /**
@@ -444,30 +414,29 @@ public class MantOrAskGUI extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel _desde;
+    private javax.swing.JLabel _equipo;
+    private javax.swing.JLabel _hasta;
+    private javax.swing.JLabel _tituloAccion;
+    private javax.swing.JLabel _usuario;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JRadioButton comentarUltimaRB;
+    private com.toedter.calendar.JDateChooser desdeDC;
+    private javax.swing.JLabel equipoLbl;
+    private com.toedter.calendar.JDateChooser hastaDC;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelEquipo;
     private javax.swing.JLabel jLabelEquipo1;
     private javax.swing.JLabel jLabelNombreE;
-    private javax.swing.JLabel jLabelUser;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextAreaInfo;
+    private javax.swing.JRadioButton pedirMantencionRB;
+    private javax.swing.JRadioButton realizarUltimaMantencionRB;
+    private javax.swing.JRadioButton reporteEquipoFechaRB;
+    private javax.swing.JRadioButton reporteUltimaMantencionRB;
+    private javax.swing.JRadioButton reporteUltimaSolicitudRB;
+    private javax.swing.JButton solicitarBtn;
+    private javax.swing.JLabel usuarioLbl;
     // End of variables declaration//GEN-END:variables
 }
