@@ -8,8 +8,17 @@ import GUI.TrozadoEvaporadoresGui;
 import GUI.TrozadosIluminariasGui;
 import javax.swing.JOptionPane;
 import GUI.components.JPanelAnimated;
+import java.awt.Color;
 import java.awt.GraphicsEnvironment;
+import java.awt.Insets;
 import java.awt.Rectangle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BorderFactory;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
 
 /**
  *
@@ -24,6 +33,31 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+			UIManager.getLookAndFeelDefaults().put("Panel.background", Color.WHITE);
+			UIManager.getLookAndFeelDefaults().put("Button.background", new Color(25, 133, 172));
+			UIManager.getLookAndFeelDefaults().put("Button.light", Color.WHITE);
+			UIManager.getLookAndFeelDefaults().put("Button.foreground", Color.WHITE);
+			UIManager.getLookAndFeelDefaults().put("InternalFrame.background", Color.WHITE);
+			UIManager.getLookAndFeelDefaults().put("InternalFrame.activeTitleBackground", Color.WHITE);
+			UIManager.getLookAndFeelDefaults().put("window", Color.WHITE);
+			UIManager.getLookAndFeelDefaults().put("InternalFrame.activeTitleForeground", Color.BLACK);
+			UIManager.getLookAndFeelDefaults().put("RadioButton.background", Color.WHITE);
+			// Margen
+			Border b = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
+			UIManager.put("TextField.margin", new Insets(5, 5, 5, 5));
+			UIManager.put("PasswordField.margin", new Insets(5, 5, 5, 5));
+			UIManager.put("Button.margin", new Insets(10, 5, 10, 5));
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (UnsupportedLookAndFeelException ex) {
+			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+		}
         initComponents();
         user = new BLL.Usuarios();
         instancia = this;
@@ -46,8 +80,9 @@ public class Main extends javax.swing.JFrame {
 
         ingresoPanel = new javax.swing.JPanel();
         tituloPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         tituloLbl = new javax.swing.JLabel();
-        logoBtn = new javax.swing.JButton();
+        logo = new javax.swing.JLabel();
         formularioPanel = new javax.swing.JPanel();
         nombreLbl = new javax.swing.JLabel();
         nombreTxt = new javax.swing.JTextField();
@@ -73,20 +108,25 @@ public class Main extends javax.swing.JFrame {
         tituloPanel.setMinimumSize(new java.awt.Dimension(0, 0));
         tituloPanel.setPreferredSize(new java.awt.Dimension(411, 50));
 
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         tituloLbl.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         tituloLbl.setForeground(new java.awt.Color(75, 113, 125));
         tituloLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloLbl.setText("DEMO");
-        tituloLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tituloPanel.add(tituloLbl);
+        tituloLbl.setBorder(null);
+        tituloLbl.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(tituloLbl);
 
-        logoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sopraval.png"))); // NOI18N
-        logoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoBtnActionPerformed(evt);
-            }
-        });
-        tituloPanel.add(logoBtn);
+        logo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        logo.setForeground(new java.awt.Color(75, 113, 125));
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sopraval.png"))); // NOI18N
+        logo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        logo.setPreferredSize(logo.getPreferredSize());
+        jPanel1.add(logo);
+
+        tituloPanel.add(jPanel1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -131,7 +171,6 @@ public class Main extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 6, 0, 0);
         formularioPanel.add(contrasenaTxt, gridBagConstraints);
 
-        entrarBtn.setForeground(new java.awt.Color(65, 95, 105));
         entrarBtn.setText("Entrar");
         entrarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,11 +217,11 @@ public class Main extends javax.swing.JFrame {
         contenedorPanel.setLayout(contenedorPanelLayout);
         contenedorPanelLayout.setHorizontalGroup(
             contenedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 495, Short.MAX_VALUE)
         );
         contenedorPanelLayout.setVerticalGroup(
             contenedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 303, Short.MAX_VALUE)
         );
 
         getContentPane().add(contenedorPanel);
@@ -295,9 +334,6 @@ public class Main extends javax.swing.JFrame {
         this.cambioVentana(new MenuGui());
     }//GEN-LAST:event_menuGeneralItemActionPerformed
 
-    private void logoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoBtnActionPerformed
-    }//GEN-LAST:event_logoBtnActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		Rectangle bounds = env.getMaximumWindowBounds();
@@ -353,7 +389,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel formularioPanel;
     private javax.swing.JPanel ingresoPanel;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JButton logoBtn;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logo;
     private javax.swing.JMenuItem menuGeneralItem;
     private javax.swing.JLabel nombreLbl;
     private javax.swing.JTextField nombreTxt;

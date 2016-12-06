@@ -57,10 +57,9 @@ public class MenuGui extends javax.swing.JPanel {
         botonesPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         trozadoBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        trozadoBtn.setForeground(new java.awt.Color(80, 105, 113));
         trozadoBtn.setText("Trozado");
         trozadoBtn.setToolTipText("");
-        trozadoBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        trozadoBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         trozadoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         trozadoBtn.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         trozadoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -71,10 +70,9 @@ public class MenuGui extends javax.swing.JPanel {
         botonesPanel.add(trozadoBtn);
 
         empaqueBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        empaqueBtn.setForeground(new java.awt.Color(80, 105, 113));
         empaqueBtn.setText("Empaque");
         empaqueBtn.setToolTipText("");
-        empaqueBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        empaqueBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         empaqueBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         empaqueBtn.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         empaqueBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -85,10 +83,9 @@ public class MenuGui extends javax.swing.JPanel {
         botonesPanel.add(empaqueBtn);
 
         procesosPosterioresBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        procesosPosterioresBtn.setForeground(new java.awt.Color(80, 105, 113));
         procesosPosterioresBtn.setText("Procesos Posteriores");
         procesosPosterioresBtn.setToolTipText("");
-        procesosPosterioresBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        procesosPosterioresBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         procesosPosterioresBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         procesosPosterioresBtn.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         procesosPosterioresBtn.addActionListener(new java.awt.event.ActionListener() {

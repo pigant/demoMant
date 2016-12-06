@@ -80,7 +80,6 @@ public class TrozadosIluminariasGui extends javax.swing.JPanel {
         planoScrollPane.setMaximumSize(new java.awt.Dimension(600, 600));
         add(planoScrollPane, java.awt.BorderLayout.CENTER);
 
-        reporteAreaBtn.setForeground(new java.awt.Color(66, 83, 88));
         reporteAreaBtn.setText("Reporte Area");
         reporteAreaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
